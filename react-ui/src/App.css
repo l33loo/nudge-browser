@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #def8ff;
 }
 
 .App-logo {
@@ -21,9 +22,16 @@
 
 .menu {
   font-family: sans-serif;
-  font-stle: bold;
+  font-weight: bold;
   color: #555;
   float: right;
+  padding: 50px;
+  padding-top: 125px;
+  font-size: 2em;
+}
+
+.menu:hover {
+  color: #555;
 }
 
 /*@keyframes App-logo-spin {
