@@ -8,7 +8,7 @@ const NavBar = (props) => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <div class="menu"><span>Login</span> | <span>Register</span></div>
+      <div className="menu"><span>Login</span> | <span>Register</span></div>
     </header>
   );
 };
