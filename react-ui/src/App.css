@@ -1,7 +1,10 @@
 .App {
   text-align: center;
-  background-color: #def8ff;
-  padding-bottom: 500px
+  background-color: #e5f6fb /*#efeeee light grey*/;
+  padding-bottom: 500px;
+  font-family: sans-serif;
+  top: 0;
+  left: 0;
 }
 
 .App-logo {
@@ -25,7 +28,6 @@
 }
 
 .menu {
-  font-family: sans-serif;
   font-weight: bold;
   color: #555;
   float: right;
@@ -38,10 +40,32 @@
   color: #00add9;
 }
 
-.login {
+form {
+  width: 30%;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /*border: 10px dashed #00add9;*/
+  background-color: white;
+  border-radius: 50px;
+}
+
+.login, .registration {
   margin-top: 300px;
   margin-bottom: 300px;
   background-color: white;
+}
+
+label {
+  padding-right: 1em;
+}
+
+.form-field {
+  padding-bottom: 0.5em;
+}
+
+input {
+  border-radius: 5px
 }
 
 /*@keyframes App-logo-spin {
