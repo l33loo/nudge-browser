@@ -34,6 +34,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Login />
+        <Registration />
       </div>
     );
   }
