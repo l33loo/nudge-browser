@@ -14,7 +14,6 @@ export default class Login extends Component {
     // };
 
     return (
-      <fieldset>
       <form className="login">
         <label>Email</label>
         <input className="login-email" value={ this.state.email } placeholder="email@example.com" />
@@ -22,7 +21,6 @@ export default class Login extends Component {
         <input className="login-password" value={ this.state.password } placeholder="Password" />
         <button type="submit">Login</button>
       </form>
-      </fieldset>
     );
   }
 
