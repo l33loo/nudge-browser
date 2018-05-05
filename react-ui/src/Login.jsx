@@ -15,10 +15,15 @@ export default class Login extends Component {
 
     return (
       <form className="login">
-        <label>Email</label>
-        <input className="email" value={ this.state.email } placeholder="email@example.com" />
-        <label>Password</label>
-        <input className="password" value={ this.state.password } placeholder="Password" />
+        <h1>Login</h1>
+        <div className="form-field">
+          <label>Email</label>
+          <input className="email" value={ this.state.email } placeholder="email@example.com" /><br/>
+        </div>
+        <div className="form-field">
+          <label>Password</label>
+          <input className="password" value={ this.state.password } placeholder="Password" /><br/>
+        </div>
         <button type="submit">Login</button>
       </form>
     );
