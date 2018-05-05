@@ -30,8 +30,8 @@
   font-size: 2em;
 }
 
-.menu:hover {
-  color: #555;
+.menu span:hover {
+  color: #00add9;
 }
 
 /*@keyframes App-logo-spin {
