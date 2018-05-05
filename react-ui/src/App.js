@@ -3,6 +3,7 @@ import './App.css';
 // import Main from './Main.jsx';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
+import Registration from './Registration.jsx';
 
 class App extends Component {
   constructor() {
