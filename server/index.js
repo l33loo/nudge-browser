@@ -102,7 +102,7 @@ function sendEmail(email){
   app.get("/:id", (req, res) => {
     res.render("../react-ui/build/index.html");
     activeusers[req.params.id].count = 0;
-    res.redirect("http://localhost:3000");
+    res.redirect("http://localhost:5000");
   });
 
 // app.get("/login/:id", (req, res) => {
