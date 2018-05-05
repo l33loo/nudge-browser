@@ -16,9 +16,9 @@ export default class Login extends Component {
     return (
       <form className="login">
         <label>Email</label>
-        <input className="login-email" value={ this.state.email } placeholder="email@example.com" />
+        <input className="email" value={ this.state.email } placeholder="email@example.com" />
         <label>Password</label>
-        <input className="login-password" value={ this.state.password } placeholder="Password" />
+        <input className="password" value={ this.state.password } placeholder="Password" />
         <button type="submit">Login</button>
       </form>
     );
