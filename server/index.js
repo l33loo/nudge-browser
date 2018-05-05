@@ -2,8 +2,11 @@ const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+      mailer = require('express-mailer');
 
 const PORT = process.env.PORT || 5000;
+
+const bodyParser = require("body-parser");
 
 // Multi-process to utilize all CPU cores.
 if (cluster.isMaster) {
