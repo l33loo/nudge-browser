@@ -9,8 +9,7 @@ export default class Login extends Component {
         email: "",
         password: "",
         passwordConfirmation: "",
-        contactFisrtName: "",
-        contactLastName: "",
+        contactName: "",
         contactEmail: ""
       };
 
