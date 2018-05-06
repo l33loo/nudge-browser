@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import NavBar from './NavBar.jsx';
 
 export default class Login extends Component {
   constructor() {
@@ -14,7 +15,10 @@ export default class Login extends Component {
     // };
 
     return (
+      <div>
+
       <form className="login">
+
         <h1>Login</h1>
         <div className="form-field">
           <label>Email</label>
@@ -26,6 +30,7 @@ export default class Login extends Component {
         </div>
         <button type="submit">Login</button>
       </form>
+      </div>
     );
   }
 
