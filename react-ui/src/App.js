@@ -17,18 +17,29 @@ class App extends Component {
       timeLastActivity: 0,
       contactName: "",
       contactEmail: "",
-      notificationsEnabled: true
+      notificationsEnabled: true,
+      tagName: "Login"
     }
 
+    // this.checkLoginStatus = this.checkLoginStatus.bind(true);
     this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
     this.trackActivity = this.trackActivity.bind(this);
     this.getTimeSinceLastActivity = this.getTimeSinceLastActivity.bind(this);
     this.verifyIfPing = this.verifyIfPing.bind(this);
     this.pingServer = this.pingServer.bind(this);
+    this.getTagName = this.getTagName.bind(this);
   }
 
+  // checkLoginStatus {
+  //    return session id
+  //}
+
+  // changeNotificationStatus() {
+  // pass to settings checkbox
+  //}
+
   verifyIfTrackActivity() {
-    //return session user_id && this.state.notificationsEnabled;
+    //return checkLoginStatus && this.state.notificationsEnabled;
     return true; //for development
   }
 
@@ -51,25 +62,34 @@ class App extends Component {
   }
 
   manageServerPings(time) { // Date.now(), Date.now() + 2hrs
-    if (this.verifyIfPing(10000)) {
+    if (this.verifyIfPing(86400000)) { // 24-hr schedule
       this.pingServer();
     }
-    this.manageServerPings(time + 5000);
+    this.manageServerPings(time + 3600000); // every hour
   }
 
-
+  getTagName() {
+    switch(this.state.tagName) {
+      case "Login":
+        return <Login />;
+      case "Registration":
+        return <Registration />;
+      default:
+        console.log("Error: invalid component tag name");
+    }
+  }
   // function to change firstName, email, contactFirstName, contactEmail at login
-  // function to change firstName, email, contactFirstName, contactEmail at registration
-  // function to change mouse coordinates
+  // function to create new user (firstName, email, contactFirstName, contactEmail) at registration
   // function to check if user logged in (for conditionals)
 
-  // when cookie session is set, use it's user_id to fetch info to be stored in state
+  // when cookie session is set, get info for this.state from JSON for user (by user_id)
 
   componentDidMount() {
     // this.manageServerPings(Date.now());
   }
 
   render() {
+    const tagName = this.getTagName();
     return (
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
         <div id="phone-image">
@@ -82,9 +102,7 @@ class App extends Component {
           </div>
         </div>
           <NavBar />
-          <Login />
-          <Registration />
-
+          {tagName}
       </div>
     );
   }
