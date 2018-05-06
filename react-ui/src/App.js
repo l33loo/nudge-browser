@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Registration from './Registration.jsx';
+import Setting from './Setting.jsx';
 // import phone from './red-phone.jpg';
 // import logo from './logoNudge.png';
 
@@ -28,6 +29,7 @@ class App extends Component {
     this.verifyIfPing = this.verifyIfPing.bind(this);
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   // checkLoginStatus {
@@ -37,6 +39,10 @@ class App extends Component {
   // changeNotificationStatus() {
   // pass to settings checkbox
   //}
+
+  changePage(tagName) {
+    this.setState({ tagName: tagName});
+  }
 
   verifyIfTrackActivity() {
     //return checkLoginStatus && this.state.notificationsEnabled;
@@ -71,9 +77,11 @@ class App extends Component {
   getTagName() {
     switch(this.state.tagName) {
       case "Login":
-        return <Login />;
+        return <Login renderPage={ this.changePage } />;
       case "Registration":
-        return <Registration />;
+        return <Registration renderPage={ this.changePage } />;
+      case "Setting":
+        return <Setting renderPage={ this.changePage } />;
       default:
         console.log("Error: invalid component tag name");
     }
@@ -101,7 +109,7 @@ class App extends Component {
             </h1>
           </div>
         </div>
-          <NavBar />
+          <NavBar renderPage={ this.changePage } />
           {tagName}
       </div>
     );
