@@ -12,14 +12,51 @@ class App extends Component {
     super();
     this.state = {
       firstName: "",
+      lastName: "",
       email: "",
-      lastMouseX: 0,
-      lastMouseY: 0,
-      contactFirstName: "",
-      contactEmail: ""
+      timeLastActivity: 0,
+      contactName: "",
+      contactEmail: "",
+      notificationsEnabled: true
     }
-    // bind 'this' here
+
+    this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
+    this.trackActivity = this.trackActivity.bind(this);
+    this.getTimeSinceLastActivity = this.getTimeSinceLastActivity.bind(this);
+    this.verifyIfPing = this.verifyIfPing.bind(this);
+    this.pingServer = this.pingServer.bind(this);
   }
+
+  verifyIfTrackActivity() {
+    //return session user_id && this.state.notificationsEnabled;
+    return true; //for development
+  }
+
+  trackActivity() {
+    this.setState({ timeLastActivity: Date.now() });
+    console.log(this.state.timeLastActivity);
+  }
+
+  getTimeSinceLastActivity() {
+    return Date.now() - this.state.timeLastActivity;
+  }
+
+  verifyIfPing(schedule) {
+    return this.state.timeLastActivity && this.getTimeSinceLastActivity() < schedule;
+  }
+
+  pingServer() {
+    //ping server POST /users/:id/checkin with session user_id
+    console.log("Ping server!"); // for development
+  }
+
+  manageServerPings(time) { // Date.now(), Date.now() + 2hrs
+    if (this.verifyIfPing(10000)) {
+      this.pingServer();
+    }
+    this.manageServerPings(time + 5000);
+  }
+
 
   // function to change firstName, email, contactFirstName, contactEmail at login
   // function to change firstName, email, contactFirstName, contactEmail at registration
@@ -28,12 +65,13 @@ class App extends Component {
 
   // when cookie session is set, use it's user_id to fetch info to be stored in state
 
-  // componentDidMount() {
-  // }
+  componentDidMount() {
+    // this.manageServerPings(Date.now());
+  }
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
         <div id="phone-image">
 
           <div className="image-text">
