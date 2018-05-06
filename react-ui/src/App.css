@@ -1,38 +1,45 @@
 .App {
-  text-align: center;
-  background-color: #e5f6fb /*#efeeee light grey*/;
+  /*background-color: #fcfafa;*/
   padding-bottom: 500px;
-  font-family: sans-serif;
+  font-family: Helvetica, sans-serif;
   top: 0;
   left: 0;
+  background: url('./red-phone.jpg') no-repeat fixed;
+  background-size: cover;
 }
 
 .App-logo {
   /*animation: App-logo-spin infinite 20s linear;*/
-  height: 150px;
+  height: 75px;
   width: auto;
-  float:left;
+  float: left;
+  padding-left: 50px;
+  padding-top: 27px;
+  margin: auto;
 }
 
 .App-header {
-  background-color: white;
-  height: 150px;
-  padding: 20px;
+  padding-top: 0;
+  background-color: #555;
+  height: 115px;
+  /*padding: 20px;*/
   color: #555;
-  border-bottom: 5px solid #555;
-  position: fixed;
+  /*border-bottom: 5px solid #555;*/
+  position: sticky;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 9999;
+  opacity: 0.9;
 }
 
 .menu {
   font-weight: bold;
-  color: #555;
+  color: white;
   float: right;
-  padding: 50px;
-  padding-top: 125px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  margin-top: 58px;
   font-size: 2em;
 }
 
@@ -45,28 +52,87 @@ form {
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;
-  /*border: 10px dashed #00add9;*/
-  background-color: white;
-  border-radius: 50px;
+  padding-left: 500px;
+  /*border: 10px dashed #eaeaea;*/
+  /*border-radius: 50px;*/
 }
 
-.login, .registration {
+/*.login, .registration {
   margin-top: 300px;
   margin-bottom: 300px;
-  background-color: white;
+  background-color: #fcfafa;
+}*/
+
+form h1 {
+  font-size: 3em;
+}
+
+form h2 {
+  text-size: 2em;
 }
 
 label {
-  padding-right: 1em;
+  font-size: 1.5em;
+  padding-right: 0.5em;
+
 }
 
 .form-field {
   padding-bottom: 0.5em;
+  font-size: 2em;
+  height: 2em;
 }
 
 input {
   border-radius: 5px
 }
+
+#phone-image {
+  /*position: relative;*/
+  width: 100%;
+  height: 1500px;
+  z-index: 0;
+  /*float: right;*/
+  /*background: url('./red-phone.jpg') no-repeat fixed;
+  background-size: cover;*/
+  /*background-color: #e7e7e7;*/
+}
+
+.image-text h1 {
+  position: absolute;
+  top: 700px;
+  text-align: right;
+  width: 100%;
+  opacity: 0.9
+}
+
+.image-text span {
+  color: #e7e7e7;
+  background: #555;
+  font: bold 80px Helvetica, Sans-serif;
+  letter-spacing: -1px;
+  padding: 10px;
+}
+
+.image-text span.spacer {
+  padding: 0 5px;
+}
+
+.image-text #nudge {
+  color: #00add9;
+}
+
+/*.small-logo {
+  top: 600px;
+  width: 12em;
+  height: auto;
+  opacity: 0.9;
+}*/
+
+/*#nudge-name {
+  font: bold 2em Helvetica, Sans-serif;
+  color: #eaeaea;
+}*/
 
 /*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
