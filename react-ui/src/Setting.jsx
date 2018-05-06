@@ -34,7 +34,7 @@ export default class Setting extends Component {
           <input type="checkbox" value={ this.state.notificationsEnabled } />
           <label for="notifications"> Check if you love this website!</label>
         </div>
-        <button type="submit">Edit</button>
+        <button type="submit" style={{cursor:'pointer'}}>Edit</button>
       </form>
     );
   }
