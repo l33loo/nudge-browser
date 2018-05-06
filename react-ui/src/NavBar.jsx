@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logoNudge.png';
+import logo from './logoNudgeBrowser.png';
 
 // function to change menu depending on login status
 
@@ -8,7 +8,7 @@ const NavBar = (props) => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <div className="menu"><span>Login</span> | <span>Register</span></div>
+      <span className="menu"><span>Login</span> | <span>Register</span></span>
     </header>
   );
 };
