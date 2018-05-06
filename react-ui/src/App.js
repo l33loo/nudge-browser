@@ -4,6 +4,8 @@ import './App.css';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Registration from './Registration.jsx';
+// import phone from './red-phone.jpg';
+// import logo from './logoNudge.png';
 
 class App extends Component {
   constructor() {
@@ -32,9 +34,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <Login />
-        <Registration />
+        <div id="phone-image">
+
+          <div className="image-text">
+            <h1>
+              <span>IF YOU CAN'T REACH YOUR PHONE,<span className='spacer'></span><br />
+              <span className='spacer'></span><span id="nudge">NUDGE</span> WILL DO IT FOR YOU.</span>
+            </h1>
+          </div>
+        </div>
+          <NavBar />
+          <Login />
+          <Registration />
+
       </div>
     );
   }
