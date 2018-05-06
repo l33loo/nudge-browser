@@ -48,15 +48,11 @@ export default class Login extends Component {
         </div>
         <h2>Your emergency contact</h2>
         <div className="form-field">
-          <label>First Name</label>
+          <label>Contact's Name</label>
           <input className="name" value={ this.state.firstName } placeholder="Jane" /><br/>
         </div>
         <div className="form-field">
-          <label>Last Name</label>
-          <input className="name" value={ this.state.lastName } placeholder="Doe" /><br/>
-        </div>
-        <div className="form-field">
-          <label>Email</label>
+          <label>Contact's Email</label>
           <input className="email" value={ this.state.email } placeholder="email@example.com" /><br/>
         </div>
         <button type="submit">Login</button>
