@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 // import NavBar from './NavBar.jsx';
 
 export default class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { email: "", password: "" };
 
-    // bind this here
+    this.linkRegistration = this.linkRegistration.bind(this);
+  }
+
+  linkRegistration() {
+    this.props.renderPage("Registration");
   }
 
   render() {
     // const onSubmit = e => {
     //   e.preventDefault();
     // };
-
     return (
       <div>
 
@@ -28,8 +31,9 @@ export default class Login extends Component {
           <label>Password</label>
           <input className="password" value={ this.state.password } placeholder="Password" /><br/>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" style={{cursor:'pointer'}}>Login</button>
       </form>
+      <div>Not a user yet? <span className="formLink" onClick={ this.linkRegistration } style={{cursor:'pointer'}}>Register here.</span></div>
       </div>
     );
   }
