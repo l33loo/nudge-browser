@@ -6,7 +6,21 @@ export default class Login extends Component {
     super(props);
     this.state = { email: "", password: "" };
 
+    this.onTypingEmail = this.onTypingEmail.bind(this);
+    this.onTypingPassword = this.onTypingPassword.bind(this);
     this.linkRegistration = this.linkRegistration.bind(this);
+  }
+
+  onTypingEmail(event) {
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  onTypingPassword(event) {
+    this.setState({
+      password: event.target.value
+    });
   }
 
   linkRegistration() {
@@ -25,11 +39,11 @@ export default class Login extends Component {
         <h1>Login</h1>
         <div className="form-field">
           <label>Email</label>
-          <input className="email" value={ this.state.email } placeholder="email@example.com" /><br/>
+          <input className="email" value={ this.state.email } placeholder="email@example.com" onChange={this.onTypingEmail} /><br/>
         </div>
         <div className="form-field">
           <label>Password</label>
-          <input className="password" value={ this.state.password } placeholder="Password" /><br/>
+          <input className="password" value={ this.state.password } placeholder="Password" onChange={this.onTypingPassword} /><br/>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Login</button>
       </form>
