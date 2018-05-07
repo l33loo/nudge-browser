@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// const fetch = fetch();
 
 export default class Login extends Component {
   constructor(props) {
@@ -29,6 +30,23 @@ export default class Login extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  // Starting with Chrome 50, this property also takes a
+  // FederatedCredential instance or a PasswordCredential instance.
+  onSubmit(event) {
+    event.preventDefault();
+    // const stateJson = this.state;
+    // fetch('/registration', {
+    //   method: 'POST',
+    //   body: JSON.stringify(stateJson),
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json'
+    //   }),
+    //   credentials: 'same-origin'
+    // }).then(res => res.json())
+    // .catch(error => console.error('Error:', error))
+    // .then(response => this.props.updateState({ response, tagName: "Main" }));
   }
 
   render() {
