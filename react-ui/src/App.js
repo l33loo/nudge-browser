@@ -5,7 +5,7 @@ import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Registration from './Registration.jsx';
 import Setting from './Setting.jsx';
-const fetch = fetch();
+// const fetch = fetch(); //gives error
 // import phone from './red-phone.jpg';
 // import logo from './logoNudge.png';
 
@@ -29,7 +29,7 @@ class App extends Component {
     this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
     this.trackActivity = this.trackActivity.bind(this);
     this.getTimeSinceLastActivity = this.getTimeSinceLastActivity.bind(this);
-    this.verifyIfPing = this.verifyIfPing.bind(this);
+    // this.verifyIfPing = this.verifyIfPing.bind(this);
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
@@ -44,20 +44,21 @@ class App extends Component {
   // pass to settings checkbox
   //}
 
-  updateState() {
-    fetch(`/users/${user_id}.json`)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(userJson) {
-        this.setState();
-      })
-  }
+  // updateState() {
+  //   fetch(`/users/${user_id}.json`)
+  //     .then(function(response) {
+  //       return response.json();
+  //     })
+  //     .then(function(userJson) {
+  //       this.setState();
+  //     })
+  // }
 
   updateState(json) {
     this.setState({ json });
   }
 
+  //merge with previous function
   changePage(tagName) {
     this.setState({ tagName: tagName});
   }
@@ -76,20 +77,19 @@ class App extends Component {
     return Date.now() - this.state.timeLastActivity;
   }
 
-  verifyIfPing(schedule) {
-    return this.state.timeLastActivity && this.getTimeSinceLastActivity() < schedule;
-  }
+  // verifyIfPing(schedule) {
+  //   return this.state.timeLastActivity && this.getTimeSinceLastActivity() < schedule;
+  // }
 
   pingServer() {
     //ping server POST /users/:id/checkin with session user_id
     console.log("Ping server!"); // for development
   }
 
-  manageServerPings(time) { // Date.now(), Date.now() + 2hrs
-    if (this.verifyIfPing(86400000)) { // 24-hr schedule
-      this.pingServer();
+  handleServerPings() { // Date.now(), Date.now() + 2hrs
+    if (Date.now() - this.state.timeLastActivity < 5000) { // 86400000 -- 24-hr schedule
+      console.log("Ping server!"); //this.pingServer();
     }
-    this.manageServerPings(time + 3600000); // every hour
   }
 
   getTagName() {
@@ -104,21 +104,22 @@ class App extends Component {
         console.log("Error: invalid component tag name");
     }
   }
-  // function to change first_name, email, contactFirst_name, contactEmail at login
-  // function to create new user (first_name, email, contactFirst_name, contactEmail) at registration
   // function to check if user logged in (for conditionals)
 
-  // when cookie session is set, get info for this.state from JSON for user (by user_id)
-
   componentDidMount() {
-    // this.manageServerPings(Date.now());
-    fetch(`/users/${user_id}.json`, credentials: 'same-origin')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(userJson) {
-      this.setState({ userJson });
-    });
+    if (this.state.loggedIn && this.state.notificationsEnabled) {
+      setInterval(() => {
+    if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+      console.log("Ping server!"); //this.pingServer();
+    }}, 5000);
+    }
+    // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
+    // .then(function(response) {
+    //   return response.json();
+    // })
+    // .then(function(userJson) {
+    //   this.setState({ userJson });
+    // });
   }
 
   render() {
