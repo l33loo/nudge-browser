@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
 
 export default class Setting extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         first_name: "",
         last_name: "",
         email: "",
         contact_name: "",
-        contact_email: ""
+        contact_email: "",
       };
 
     // bind 'this' here
   }
 
-  // componentDidMount() {
-  // }
+  onSubmit(event) {
+    event.preventDefault();
+    // const stateJson = this.state;
+    // fetch('/registration', {
+    //   method: 'PUT',
+    //   body: JSON.stringify(stateJson),
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json'
+    //   }),
+    //   credentials: 'same-origin'
+    // }).then(res => res.json())
+    // .catch(error => console.error('Error:', error))
+    // .then(response => this.props.updateState({ response, tagName: "Main" }));
+  }
+
+  componentDidMount() {
+        // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
+    // .then(function(response) {
+    //   return response.json();
+    // })
+    // .then(function(userJson) {
+    //   this.setState({ userJson });
+    // });
+  }
 
   render() {
     return (
