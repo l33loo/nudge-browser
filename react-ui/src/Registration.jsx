@@ -14,13 +14,7 @@ export default class Login extends Component {
       };
 
     this.linkLogin = this.linkLogin.bind(this);
-    this.onTypingFirstName = this.onTypingFirstName.bind(this);
-    this.onTypingLastName = this.onTypingLastName.bind(this);
-    this.onTypingEmail = this.onTypingEmail.bind(this);
-    this.onTypingPassword = this.onTypingPassword.bind(this);
-    this.onTypingPasswordConf = this.onTypingPasswordConf.bind(this);
-    this.onTypingContactName = this.onTypingContactName.bind(this);
-    this.onTypingContactEmail = this.onTypingContactEmail.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   linkLogin() {
@@ -29,45 +23,13 @@ export default class Login extends Component {
 
   // onChange={this.onTypingContactName}
 
-  onTypingFirstName(event) {
-    this.setState({
-      firstName: event.target.value
-    });
-  }
+  handleInput(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  onTypingLastName(event) {
     this.setState({
-      lastName: event.target.value
-    });
-  }
-
-  onTypingEmail(event) {
-    this.setState({
-      email: event.target.value
-    });
-  }
-
-  onTypingPassword(event) {
-    this.setState({
-      password: event.target.value
-    });
-  }
-
-  onTypingPasswordConf(event) {
-    this.setState({
-      passwordConfirmation: event.target.value
-    });
-  }
-
-  onTypingContactName(event) {
-    this.setState({
-      contactName: event.target.value
-    });
-  }
-
-  onTypingContactEmail(event) {
-    this.setState({
-      contactEmail: event.target.value
+      [name]: value
     });
   }
 
@@ -83,32 +45,32 @@ export default class Login extends Component {
           <h2>You</h2>
           <div className="form-field">
           <label>First Name</label>
-          <input className="name" value={ this.state.firstName } placeholder="Jane" onChange={this.onTypingFirstName} /><br/>
+          <input name="firstName" value={ this.state.firstName } placeholder="Jane" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Last Name</label>
-            <input className="name" value={ this.state.lastName } placeholder="Doe" onChange={this.onTypingLastName} /><br/>
+            <input name="lastName" value={ this.state.lastName } placeholder="Doe" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Email</label>
-            <input className="email" value={ this.state.email } placeholder="email@example.com" onChange={this.onTypingEmail} /><br/>
+            <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Password</label>
-            <input className="password" value={ this.state.password } placeholder="Password" onChange={this.onTypingPassword} /><br/>
+            <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Password Confirmation</label>
-            <input className="password-confirmation" value={ this.state.passwordConfirmation } placeholder="Password" onChange={this.onTypingPasswordConf} /><br/>
+            <input name="passwordConfirmation" value={ this.state.passwordConfirmation } placeholder="Password" onChange={this.handleInput} /><br/>
           </div>
           <h2>Your emergency contact</h2>
           <div className="form-field">
             <label>Contact's Name</label>
-            <input className="name" value={ this.state.contactName } placeholder="Jane" onChange={this.onTypingContactName} /><br/>
+            <input name="contactName" value={ this.state.contactName } placeholder="Jane" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Contact's Email</label>
-            <input className="email" value={ this.state.contactEmail } placeholder="email@example.com" onChange={this.onTypingContactEmail} /><br/>
+            <input name="contactEmail" value={ this.state.contactEmail } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
           <button type="submit" style={{cursor:'pointer'}}>Login</button>
         </form>

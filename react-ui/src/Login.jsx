@@ -6,20 +6,17 @@ export default class Login extends Component {
     super(props);
     this.state = { email: "", password: "" };
 
-    this.onTypingEmail = this.onTypingEmail.bind(this);
-    this.onTypingPassword = this.onTypingPassword.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.linkRegistration = this.linkRegistration.bind(this);
   }
 
-  onTypingEmail(event) {
-    this.setState({
-      email: event.target.value
-    });
-  }
+  handleInput(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  onTypingPassword(event) {
     this.setState({
-      password: event.target.value
+      [name]: value
     });
   }
 
@@ -39,11 +36,11 @@ export default class Login extends Component {
         <h1>Login</h1>
         <div className="form-field">
           <label>Email</label>
-          <input className="email" value={ this.state.email } placeholder="email@example.com" onChange={this.onTypingEmail} /><br/>
+          <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
         </div>
         <div className="form-field">
           <label>Password</label>
-          <input className="password" value={ this.state.password } placeholder="Password" onChange={this.onTypingPassword} /><br/>
+          <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Login</button>
       </form>
