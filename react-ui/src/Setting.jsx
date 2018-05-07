@@ -4,11 +4,11 @@ export default class Setting extends Component {
   constructor() {
     super();
     this.state = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
-        contactName: "",
-        contactEmail: ""
+        contact_name: "",
+        contact_email: ""
       };
 
     // bind 'this' here
@@ -24,11 +24,11 @@ export default class Setting extends Component {
         <h2>Your emergency contact</h2>
         <div className="form-field">
           <label>Contact's Name</label>
-          <input className="name" value={ this.state.firstName } placeholder="Jane" /><br/>
+          <input name="contact_name" value={ this.state.first_name } placeholder="Jane" /><br/>
         </div>
         <div className="form-field">
           <label>Contact's Email</label>
-          <input className="email" value={ this.state.email } placeholder="email@example.com" /><br/>
+          <input name="contact_email" value={ this.state.email } placeholder="email@example.com" /><br/>
         </div>
         <div>
           <input type="checkbox" value={ this.state.notificationsEnabled } />

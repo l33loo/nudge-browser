@@ -4,13 +4,13 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
-        passwordConfirmation: "",
-        contactName: "",
-        contactEmail: ""
+        password_confirmation: "",
+        contact_name: "",
+        contact_email: ""
       };
 
     this.linkLogin = this.linkLogin.bind(this);
@@ -43,11 +43,11 @@ export default class Login extends Component {
           <h2>You</h2>
           <div className="form-field">
           <label>First Name</label>
-          <input name="firstName" value={ this.state.firstName } placeholder="Jane" onChange={this.handleInput} /><br/>
+          <input name="first_name" value={ this.state.first_name } placeholder="Jane" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Last Name</label>
-            <input name="lastName" value={ this.state.lastName } placeholder="Doe" onChange={this.handleInput} /><br/>
+            <input name="last_name" value={ this.state.last_name } placeholder="Doe" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Email</label>
@@ -59,16 +59,16 @@ export default class Login extends Component {
           </div>
           <div className="form-field">
             <label>Password Confirmation</label>
-            <input name="passwordConfirmation" value={ this.state.passwordConfirmation } placeholder="Password" onChange={this.handleInput} /><br/>
+            <input name="password_confirmation" value={ this.state.password_confirmation } placeholder="Password" onChange={this.handleInput} /><br/>
           </div>
           <h2>Your emergency contact</h2>
           <div className="form-field">
             <label>Contact's Name</label>
-            <input name="contactName" value={ this.state.contactName } placeholder="Jane" onChange={this.handleInput} /><br/>
+            <input name="contact_name" value={ this.state.contact_name } placeholder="Jane" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Contact's Email</label>
-            <input name="contactEmail" value={ this.state.contactEmail } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+            <input name="contact_email" value={ this.state.contact_email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
           <button type="submit" style={{cursor:'pointer'}}>Login</button>
         </form>
