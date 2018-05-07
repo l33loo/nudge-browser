@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
+// const fetch = fetch(); //gives error
 // import NavBar from './NavBar.jsx';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", password: "" };
+    this.state = {
+      email: "",
+      password: "",
+      timeLastActivity: 0,
+    };
 
     this.handleInput = this.handleInput.bind(this);
     this.linkRegistration = this.linkRegistration.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   handleInput(event) {
@@ -24,14 +30,33 @@ export default class Login extends Component {
     this.props.renderPage("Registration");
   }
 
+  // Starting with Chrome 50, this property also takes a
+  // FederatedCredential instance or a PasswordCredential instance.
+  onSubmit(event) {
+    event.preventDefault();
+    // const stateJson = this.state;
+    // fetch('/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify(stateJson),
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json'
+    //   }),
+    //   credentials: 'same-origin'
+    // }).then(res => res.json())
+    // .catch(error => console.error('Error:', error))
+    // .then(response => this.props.updateState({ response, tagName: "Main" }));
+  }
+
+  componentDidMount() {
+
+  }
+
   render() {
-    // const onSubmit = e => {
-    //   e.preventDefault();
-    // };
+
     return (
       <div>
 
-      <form className="login">
+      <form className="login" onSubmit={ this.onSubmit }>
 
         <h1>Login</h1>
         <div className="form-field">
