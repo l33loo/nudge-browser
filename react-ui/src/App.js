@@ -5,6 +5,7 @@ import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Registration from './Registration.jsx';
 import Setting from './Setting.jsx';
+const fetch = fetch();
 // import phone from './red-phone.jpg';
 // import logo from './logoNudge.png';
 
@@ -12,7 +13,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      firstName: "",
+      user_id: 0,
+      first_name: "",
       lastName: "",
       email: "",
       timeLastActivity: 0,
@@ -31,6 +33,7 @@ class App extends Component {
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
+    // this.updateState = this.updateState.bind(this);
   }
 
   // checkLoginStatus {
@@ -40,6 +43,20 @@ class App extends Component {
   // changeNotificationStatus() {
   // pass to settings checkbox
   //}
+
+  updateState() {
+    fetch(`/users/${user_id}.json`)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(userJson) {
+        this.setState();
+      })
+  }
+
+  updateState(json) {
+    this.setState({ json });
+  }
 
   changePage(tagName) {
     this.setState({ tagName: tagName});
@@ -87,14 +104,21 @@ class App extends Component {
         console.log("Error: invalid component tag name");
     }
   }
-  // function to change firstName, email, contactFirstName, contactEmail at login
-  // function to create new user (firstName, email, contactFirstName, contactEmail) at registration
+  // function to change first_name, email, contactFirst_name, contactEmail at login
+  // function to create new user (first_name, email, contactFirst_name, contactEmail) at registration
   // function to check if user logged in (for conditionals)
 
   // when cookie session is set, get info for this.state from JSON for user (by user_id)
 
   componentDidMount() {
     // this.manageServerPings(Date.now());
+    fetch(`/users/${user_id}.json`, credentials: 'same-origin')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(userJson) {
+      this.setState({ userJson });
+    });
   }
 
   render() {
