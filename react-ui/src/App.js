@@ -19,7 +19,8 @@ class App extends Component {
       contactName: "",
       contactEmail: "",
       notificationsEnabled: true,
-      tagName: "Login"
+      tagName: "Login",
+      loggedIn: true // for development
     }
 
     // this.checkLoginStatus = this.checkLoginStatus.bind(true);
