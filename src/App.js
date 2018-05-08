@@ -114,7 +114,8 @@ class App extends Component {
         fetch("https://nudge-server.herokuapp.com/ping", {
           method: 'GET' ,
           mode : 'no-cors'//,
-          // credentials: 'include' })
+          // credentials: 'include'
+        })
         .then(function(response) {
           return response.json();
         })
