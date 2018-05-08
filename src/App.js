@@ -117,7 +117,7 @@ class App extends Component {
           // credentials: 'include'
         })
         .then(function(response) {
-          return response.json();
+          return response;
         })
         .then(function(resp) {
           console.log(resp);
