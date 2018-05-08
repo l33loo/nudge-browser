@@ -34,17 +34,17 @@ export default class Login extends Component {
   // FederatedCredential instance or a PasswordCredential instance.
   onSubmit(event) {
     event.preventDefault();
-    // const stateJson = this.state;
-    // fetch('/login', {
-    //   method: 'POST',
-    //   body: JSON.stringify(stateJson),
-    //   headers: new Headers({
-    //     'Content-Type': 'application/json'
-    //   }),
-    //   credentials: 'same-origin'
-    // }).then(res => res.json())
-    // .catch(error => console.error('Error:', error))
-    // .then(response => this.props.updateState({ response, tagName: "Main" }));
+    const stateJson = this.state;
+    fetch('/login', {
+      method: 'POST',
+      body: JSON.stringify(stateJson),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      // credentials: 'same-origin'
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => this.props.updateState({ tagName: "Setting" }));
   }
 
   componentDidMount() {
