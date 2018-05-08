@@ -113,7 +113,7 @@ class App extends Component {
           // console.log("Ping server!"); //this.pingServer();
         fetch("https://nudge-server.herokuapp.com/ping", { mode: 'cors' })
         .then(function(response) {
-          return response.json();
+          return response;
         })
         .then(function(resp) {
           console.log(resp);
