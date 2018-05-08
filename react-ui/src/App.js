@@ -109,9 +109,16 @@ class App extends Component {
   componentDidMount() {
     if (this.state.loggedIn && this.state.notificationsEnabled) {
       setInterval(() => {
-    if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
-      console.log("Ping server!"); //this.pingServer();
-    }}, 5000);
+        if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+          // console.log("Ping server!"); //this.pingServer();
+        fetch(`/ping`)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(resp) {
+          console.log(resp);
+        });
+      }}, 5000);
     }
     // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
     // .then(function(response) {
