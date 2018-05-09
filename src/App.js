@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 // import Main from './Main.jsx';
 import NavBar from './NavBar.jsx';
-import Login from './Login.jsx';
+import Intro from './Intro.jsx';
 import Registration from './Registration.jsx';
 import Setting from './Setting.jsx';
 // const fetch = fetch(); //gives error
@@ -95,7 +95,7 @@ class App extends Component {
   getTagName() {
     switch(this.state.tagName) {
       case "Login":
-        return <Login renderPage={ this.changePage } />;
+        return <Intro renderPage={ this.changePage } />;
       case "Registration":
         return <Registration renderPage={ this.changePage } />;
       case "Setting":
@@ -111,7 +111,11 @@ class App extends Component {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
           // console.log("Ping server!"); //this.pingServer();
-        fetch("https://nudge-server.herokuapp.com/ping")
+        fetch("https://nudge-server.herokuapp.com/ping", {
+          method: 'GET',
+          //mode : 'no-cors'//,
+          // credentials: 'include'
+        })
         .then(function(response) {
           return response;
         })
@@ -135,12 +139,7 @@ class App extends Component {
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
         <div id="phone-image">
 
-          <div className="image-text">
-            <h1>
-              <span>IF YOU CAN'T REACH YOUR PHONE,<span className='spacer'></span><br />
-              <span className='spacer'></span><span id="nudge">NUDGE</span> WILL DO IT FOR YOU.</span>
-            </h1>
-          </div>
+        <Intro />
         </div>
           <NavBar renderPage={ this.changePage } />
           {tagName}
