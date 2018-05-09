@@ -2,10 +2,26 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 const FontAwesome = require('react-fontawesome');
 
-class Intro extends Component {
+const Intro = (props) => {
   const responseGoogle = (response) => {
-    console.log(response);
+    if (response.type === 'success') {
+      this.props.changePage('Main');
+      fetch('https://nudge-server.herokuapp.com/contacts', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+        body: JSON.stringify({
+          firstParam: response.accessToken
+        }),
+      });
+      return response.accessToken;
+    } else {
+
+    }
   }
+
   return (
     <div className="intro">
       <div className="image-text">
