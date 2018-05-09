@@ -18,7 +18,7 @@ const Intro = (props) => {
       });
       return response.accessToken;
     } else {
-
+      console.log("GOOGLE ERROR!!!");
     }
   }
 
