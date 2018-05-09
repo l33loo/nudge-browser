@@ -55,43 +55,46 @@ export default class Login extends Component {
     // };
 
     return (
-      <div>
         <form className="registration">
-          <h1>Register</h1>
-          <h2>You</h2>
-          <div className="form-field">
-          <label>First Name</label>
-          <input name="first_name" value={ this.state.first_name } placeholder="Jane" onChange={this.handleInput} /><br/>
+          <h1>Sign up</h1>
+          <div className="section"><span>1</span>Your info</div>
+          <div className="form-section">
+            <div className="form-field">
+            <label>First Name</label>
+            <input name="first_name" value={ this.state.first_name } placeholder="Jane" onChange={this.handleInput} /><br/>
+            </div>
+            <div className="form-field">
+              <label>Last Name</label>
+              <input name="last_name" value={ this.state.last_name } placeholder="Doe" onChange={this.handleInput} /><br/>
+            </div>
+            <div className="form-field">
+              <label>Email</label>
+              <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+            </div>
+            <div className="form-field">
+              <label>Password</label>
+              <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
+            </div>
+            <div className="form-field">
+              <label>Password Confirmation</label>
+              <input name="password_confirmation" value={ this.state.password_confirmation } placeholder="Password" onChange={this.handleInput} /><br/>
+            </div>
           </div>
-          <div className="form-field">
-            <label>Last Name</label>
-            <input name="last_name" value={ this.state.last_name } placeholder="Doe" onChange={this.handleInput} /><br/>
+          <div className="section"><span>2</span>Your emergency contact's info</div>
+          <div className="form-section">
+            <div className="form-field">
+              <label>Contact's Name</label>
+              <input name="contact_name" value={ this.state.contact_name } placeholder="Jane" onChange={this.handleInput} /><br/>
+            </div>
+            <div className="form-field">
+              <label>Contact's Email</label>
+              <input name="contact_email" value={ this.state.contact_email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+            </div>
           </div>
-          <div className="form-field">
-            <label>Email</label>
-            <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
-          </div>
-          <div className="form-field">
-            <label>Password</label>
-            <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
-          </div>
-          <div className="form-field">
-            <label>Password Confirmation</label>
-            <input name="password_confirmation" value={ this.state.password_confirmation } placeholder="Password" onChange={this.handleInput} /><br/>
-          </div>
-          <h2>Your emergency contact</h2>
-          <div className="form-field">
-            <label>Contact's Name</label>
-            <input name="contact_name" value={ this.state.contact_name } placeholder="Jane" onChange={this.handleInput} /><br/>
-          </div>
-          <div className="form-field">
-            <label>Contact's Email</label>
-            <input name="contact_email" value={ this.state.contact_email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
-          </div>
-          <button type="submit" style={{cursor:'pointer'}}>Login</button>
+          <button type="submit" style={{cursor:'pointer'}}>Sign up</button>
+          <div className="policy"><input type="checkbox" id="checkbox" />You agree to our Terms and Policy.</div>
+          <div>Already a user yet? <span className="formLink" onClick={ this.linkLogin } style={{cursor:'pointer'}}>Login here.</span></div>
         </form>
-       <div>Already a user yet? <span className="formLink" onClick={ this.linkLogin } style={{cursor:'pointer'}}>Login here.</span></div>
-      </div>
     );
   }
 }
