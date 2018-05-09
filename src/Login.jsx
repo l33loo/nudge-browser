@@ -54,24 +54,23 @@ export default class Login extends Component {
   render() {
 
     return (
-      <div>
-
       <form className="login" onSubmit={ this.onSubmit }>
 
         <h1>Login</h1>
-        <div className="form-field">
-          <label>Email</label>
-          <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
-        </div>
-        <div className="form-field">
-          <label>Password</label>
-          <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
+        <div className="form-section">
+          <div className="form-field">
+            <label>Email</label>
+            <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+          </div>
+          <div className="form-field">
+            <label>Password</label>
+            <input name="password" value={ this.state.password } placeholder="Password" onChange={this.handleInput} /><br/>
+          </div>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Login</button>
+        <div>Not a user yet? <span className="formLink" onClick={ this.linkRegistration } style={{cursor:'pointer'}}>Register here.</span></div>
+
       </form>
-      <div>Not a user yet? <span className="formLink" onClick={ this.linkRegistration } style={{cursor:'pointer'}}>Register here.</span></div>
-      </div>
     );
   }
-
 }
