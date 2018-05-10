@@ -6,8 +6,8 @@ const Intro = (props) => {
   const responseGoogle = (response) => {
     console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
-      console.log("GOOGLE LOGIN SUCCESS");
-      this.props.changePage('Main');
+      // console.log("GOOGLE LOGIN SUCCESS");
+      // this.props.changePage('Main');
       fetch('https://nudge-server.herokuapp.com/contacts', {
         method: 'POST',
         headers: {
