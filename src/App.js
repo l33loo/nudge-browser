@@ -100,7 +100,7 @@ class App extends Component {
     } else {
       switch(this.state.tagName) {
         case "Intro":
-          return <Intro renderPage={ this.changePage } />;
+          return <Intro updateState={ this.updateState } renderPage={ this.changePage } />;
         case "Registration":
           return <Registration renderPage={ this.changePage } />;
         case "Setting":
