@@ -1,43 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans)One');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Wire+One');
+
 .App {
-  /*background-color: #fcfafa;*/
-  padding-bottom: 500px;
-  font-family: Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family: 'PT Sans Narrow', sans-serif;
   top: 0;
   left: 0;
-  background: url('./red-phone.jpg') no-repeat fixed;
+  background: url('./artistic-astronomy-dark-306344.jpg') no-repeat fixed;
   background-size: cover;
+  background-position: center center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px 25vh auto 25vh 100px;
 }
 
 .App-logo {
-  /*animation: App-logo-spin infinite 20s linear;*/
   height: 60px;
   width: auto;
   float: left;
-  padding-left: 50px;
   padding-top: 21px;
   margin: auto;
+  grid-column: 2;
 }
 
 .App-header {
   padding-top: 0;
-  background-color: #555;
-  height: 90px;
-  /*padding: 20px;*/
   color: #555;
-  /*border-bottom: 5px solid #555;*/
-  position: sticky;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 9999;
-  opacity: 0.9;
+  border-bottom: 1px solid white;
+  grid-row: 1;
+  grid-column: 2 / 12;
+}
+
+.login-link {
+  grid-column: 10;
+}
+
+.register-link {
+  grid-column: 11;
+}
+
+.register-link {
+  padding-left: 10px;
+}
+
+.login-link {
+  padding-right: 10px;
 }
 
 .menu {
-  font-weight: bold;
   color: white;
   float: right;
-  padding-right: 50px;
   padding-bottom: 20px;
   margin-top: 50px;
   font-size: 1.75em;
@@ -61,11 +81,11 @@ form {
 }
 
 form.login {
-  margin-bottom: 300px;
+  /*margin-bottom: 300px;*/
 }
 
 form.settings {
-  margin-bottom: 200px;
+  /*margin-bottom: 200px;*/
 }
 
 /*.login, .registration {
@@ -90,7 +110,7 @@ form h1 {
 
 label {
   display: block;
-  font: 24px Arial, Helvetica, sans-serif;
+  font: 24px 'PT Sans Narrow', sans-serif;
   color: black;
   margin-bottom: 15px;
 }
@@ -175,60 +195,38 @@ button:hover {
 .policy {
   float: right;
   width: 450px;
-  font: 24px Arial, Helvetica, sans-serif;
+  font: 24px Arial, 'PT Sans Narrow', sans-serif;
   color: #4D4D4D;
   margin-top: 10px;
   text-align: right;
 }
 
-#phone-image {
-  /*position: relative;*/
-  width: 100%;
-  height: 1500px;
-  z-index: 0;
-  /*float: right;*/
-  /*background: url('./red-phone.jpg') no-repeat fixed;
-  background-size: cover;*/
-  /*background-color: #e7e7e7;*/
+.Intro {
+  grid-column: 4 / 10 ;
+  grid-row: 3;
+  margin: 0 auto;
 }
 
-.image-text h1 {
-  position: absolute;
-  top: 450px;
-  text-align: right;
-  width: 100%;
-  opacity: 0.9
+.Intro h1 {
+  font: normal 80px 'PT Sans Narrow', Sans-serif;
+  text-align: center;
 }
 
-.image-text span {
+#google-login {
+  margin: 0 auto;
+}
+
+.Intro span {
   color: #e7e7e7;
-  background: #555;
-  font: bold 55px Helvetica, Sans-serif;
-  letter-spacing: -1px;
-  padding: 10px;
+
 }
 
-.image-text span.spacer {
-  padding: 0 5px;
-}
-
-.image-text #nudge {
+.Intro #nudge {
   color: #00add9;
 }
 
-/*.small-logo {
-  top: 600px;
-  width: 12em;
-  height: auto;
-  opacity: 0.9;
-}*/
-
-/*#nudge-name {
-  font: bold 2em Helvetica, Sans-serif;
-  color: #eaeaea;
-}*/
-
-/*@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}*/
+.Footer {
+  border-top: 1px solid white;
+  grid-row: 5;
+  grid-column: 2 / 12;
+}
