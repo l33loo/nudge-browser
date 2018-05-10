@@ -15,10 +15,10 @@ const Intro = (props) => {
         body: JSON.stringify({
           firstParam: response.accessToken
         }),
-      });
-      return response.accessToken;
-    } else {
-      console.log("GOOGLE ERROR!!!");
+      })
+      .then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => this.props.updateState({ response }));
     }
   }
 
