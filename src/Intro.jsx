@@ -54,8 +54,8 @@ export default class Intro extends Component {
         id='google-login'
         clientId="241417537066-elmbirp4ups9h0cjp73u70nkgur98nq4.apps.googleusercontent.com"
         buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
+        onSuccess={this.responseGoogle}
+        onFailure={this.responseGoogle}
       ><FontAwesome name='google' />
       <span> Login with Google</span>
       </GoogleLogin>
