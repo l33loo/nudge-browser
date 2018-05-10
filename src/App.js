@@ -120,8 +120,8 @@ class App extends Component {
       .then(function(resp) {
           console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
 
-        // const users = resp.users;
-        // this.setState({ contacts: users });
+        const users = resp.users;
+        this.setState({ contacts: users });
       });
     }
     if (this.state.loggedIn && this.state.notificationsEnabled) {
