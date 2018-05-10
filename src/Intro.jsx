@@ -6,7 +6,7 @@ export default class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tagName = "Intro";
+      tagName: "Intro";
     }
     this.reponseGoogle = this.responseGoogle.bind(this);
   }
