@@ -28,8 +28,10 @@ export default class Intro extends Component {
       })
       .then((resp) => {
         // props.updateState({ loggedIn: true });
-        this.props.changePage('Main');
         console.log(resp.status);
+      })
+      .then(() => {
+        this.props.changePage('Main');
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
