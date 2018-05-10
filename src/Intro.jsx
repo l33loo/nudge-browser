@@ -4,7 +4,10 @@ const FontAwesome = require('react-fontawesome');
 
 const Intro = (props) => {
   const responseGoogle = (response) => {
+    console.log(`GOOGLE RESPONSE! ${response} and TYPE ${response.type}`);
     if (response.type === 'success') {
+      console.log("GOOGLE LOGIN SUCCESS");
+      this.props.changePage('Main');
       fetch('https://nudge-server.herokuapp.com/contacts', {
         method: 'POST',
         headers: {
@@ -12,15 +15,17 @@ const Intro = (props) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          firstParam: response.accessToken
+          firstParam: response.idToken
         }),
       })
-      .then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(r => {
-        console.log(`RESPONSE!!!! ${r} RESONSE.USERS!!! ${r.users}`);
-        this.props.updateState({ contacts: r.users })});
-        this.props.changePage('Main');
+      .then((resp) => {
+        console.log(resp.status);
+      })
+      .catch((error) => {
+        throw error;
+      });
+    } else {
+      console.log("GOOGLE ERROR!!!");
     }
   }
 
