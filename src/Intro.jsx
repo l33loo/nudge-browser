@@ -18,7 +18,9 @@ const Intro = (props) => {
       })
       .then(res => res.json())
       .catch(error => console.error('Error:', error))
-      .then(response => this.props.updateState({ contacts: response.users }));
+      .then(response => {
+        console.log(`RESPONSE!!!! ${response} RESONSE.USERS!!! ${response.users}`);
+        this.props.updateState({ contacts: response.users }));
     }
   }
 
