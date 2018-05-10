@@ -11,7 +11,7 @@ export default class Intro extends Component {
     this.reponseGoogle = this.responseGoogle.bind(this);
   }
 
- responseGoogle(response) => {
+ responseGoogle(response) {
     console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
       // console.log("GOOGLE LOGIN SUCCESS");
