@@ -56,8 +56,8 @@ class App extends Component {
   //     })
   // }
 
-  updateState(json) {
-    this.setState({ json });
+  updateState(data) {
+    this.setState(data);
   }
 
   //merge with previous function
