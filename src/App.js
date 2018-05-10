@@ -132,10 +132,10 @@ class App extends Component {
           // credentials: 'include'
         })
         .then(function(response) {
-          return response;
+          return response.json();
         })
         .then(function(resp) {
-          console.log(resp);
+          console.log(resp.users);
         });
       }}, 5000);
     }
