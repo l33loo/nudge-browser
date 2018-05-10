@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 const FontAwesome = require('react-fontawesome');
 
-const Intro = (props) => {
+const Intro = ({ props }) => {
   const responseGoogle = (response) => {
     console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
