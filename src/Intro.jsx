@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 const FontAwesome = require('react-fontawesome');
 
