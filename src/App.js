@@ -95,19 +95,17 @@ class App extends Component {
   }
 
   getTagName() {
-    if (this.state.loggedIn) {
-      return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
-    } else {
-      switch(this.state.tagName) {
-        case "Intro":
-          return <Intro updateState={ this.updateState } renderPage={ this.changePage } />;
-        case "Registration":
-          return <Registration renderPage={ this.changePage } />;
-        case "Setting":
-          return <Setting renderPage={ this.changePage } />;
-        default:
-          console.log("Error: invalid component tag name");
-      }
+    switch(this.state.tagName) {
+      case "Intro":
+        return <Intro updateState={ this.updateState } renderPage={ this.changePage } />;
+      case "Registration":
+        return <Registration renderPage={ this.changePage } />;
+      case "Main":
+        return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
+      case "Setting":
+        return <Setting renderPage={ this.changePage } />;
+      default:
+        console.log("Error: invalid component tag name");
     }
   }
   // function to check if user logged in (for conditionals)
