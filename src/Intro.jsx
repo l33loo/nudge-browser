@@ -4,7 +4,7 @@ const FontAwesome = require('react-fontawesome');
 
 const Intro = (props) => {
   const responseGoogle = (response) => {
-    console.log(`GOOGLE RESPONSE! ${response} and TYPE ${response.hg.id_token}`);
+    console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
       console.log("GOOGLE LOGIN SUCCESS");
       this.props.changePage('Main');
@@ -23,10 +23,10 @@ const Intro = (props) => {
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
-        // throw error;
+        throw error;
       });
     // } else {
-      // console.log("GOOGLE ERROR!!!");
+    //   console.log("GOOGLE ERROR!!!");
     // }
   }
 
