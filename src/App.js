@@ -5,6 +5,7 @@ import NavBar from './NavBar.jsx';
 import Intro from './Intro.jsx';
 import Registration from './Registration.jsx';
 import Setting from './Setting.jsx';
+import Main from './Main.jsx'
 // const fetch = fetch(); //gives error
 // import phone from './red-phone.jpg';
 // import logo from './logoNudge.png';
@@ -18,8 +19,7 @@ class App extends Component {
       lastName: "",
       email: "",
       timeLastActivity: 0,
-      contactName: "",
-      contactEmail: "",
+      contacts: [],
       notificationsEnabled: true,
       tagName: "Login",
       loggedIn: true // for development
@@ -93,20 +93,33 @@ class App extends Component {
   }
 
   getTagName() {
-    switch(this.state.tagName) {
-      case "Login":
-        return <Intro renderPage={ this.changePage } />;
-      case "Registration":
-        return <Registration renderPage={ this.changePage } />;
-      case "Setting":
-        return <Setting renderPage={ this.changePage } />;
-      default:
-        console.log("Error: invalid component tag name");
+    if (this.state.loggedIn) {
+      return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
+    } else {
+      switch(this.state.tagName) {
+        case "Login":
+          return <Intro renderPage={ this.changePage } />;
+        case "Registration":
+          return <Registration renderPage={ this.changePage } />;
+        case "Setting":
+          return <Setting renderPage={ this.changePage } />;
+        default:
+          console.log("Error: invalid component tag name");
+      }
     }
   }
   // function to check if user logged in (for conditionals)
 
   componentDidMount() {
+    if (this.state.loggedIn) {
+      fetch("https://nudge-server.herokuapp.com/contacts")
+      .then(function(response) {
+        return response;
+      })
+      .then(function(resp) {
+        this.setState(resp.users);
+      });
+    }
     if (this.state.loggedIn && this.state.notificationsEnabled) {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
@@ -139,7 +152,7 @@ class App extends Component {
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
         <div id="phone-image">
 
-        <Intro />
+        <Intro updateState={ this.updateState } />
         </div>
           <NavBar renderPage={ this.changePage } />
           {tagName}
