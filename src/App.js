@@ -117,8 +117,9 @@ class App extends Component {
         return response;
       })
       .then(function(resp) {
-        const users = resp.users;
-        this.setState({ contacts: users });
+        console.log(resp);
+        // const users = resp.users;
+        // this.setState({ contacts: users });
       });
     }
     if (this.state.loggedIn && this.state.notificationsEnabled) {
