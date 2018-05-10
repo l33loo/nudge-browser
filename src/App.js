@@ -33,7 +33,6 @@ class App extends Component {
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
     // this.updateState = this.updateState.bind(this);
   }
 
@@ -114,11 +113,11 @@ class App extends Component {
   componentDidMount() {
     if (this.state.loggedIn) {
       fetch("https://nudge-server.herokuapp.com/contacts")
-      .then(function(response) {
+      .then((response) => {
         console.log(`RESPONSE!!!!: ${response}`);
         return response.json();
       })
-      .then(function(resp) {
+      .then((resp) => {
           console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
 
         const users = resp.users;
