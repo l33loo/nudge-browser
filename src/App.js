@@ -111,19 +111,19 @@ class App extends Component {
   // function to check if user logged in (for conditionals)
 
   componentDidMount() {
-    if (this.state.loggedIn) {
-      fetch("https://nudge-server.herokuapp.com/contacts")
-      .then((response) => {
-        console.log(`RESPONSE!!!!: ${response}`);
-        return response.json();
-      })
-      .then((resp) => {
-          console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
+    // if (this.state.loggedIn) {
+    //   fetch("https://nudge-server.herokuapp.com/contacts")
+    //   .then((response) => {
+    //     console.log(`RESPONSE!!!!: ${response}`);
+    //     return response.json();
+    //   })
+    //   .then((resp) => {
+    //       console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
 
-        const users = resp.users;
-        this.setState({ contacts: users });
-      });
-    }
+    //     const users = resp.users;
+    //     this.setState({ contacts: users });
+    //   });
+    // }
     if (this.state.loggedIn && this.state.notificationsEnabled) {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
