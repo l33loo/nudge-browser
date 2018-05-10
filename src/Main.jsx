@@ -1,10 +1,13 @@
-// import React, { Component } from 'react';
+import React from 'react';
+import Contact from './Contact.jsx';
 
-// export default class Main extends Component {
-//   constructor({ props }) {
-//     super({ props });
-//     this.state = { userId: "", FirstName: "" };
-//   }
-// }
+const Main = ({ contacts }) => {
+  const contact = contacts.map((contact) => (<Contact contact={ contact } />));
+  return (
+    <div className='contacts'>
+      { contact }
+    </div>
+  );
+};
 
-//make into function
+export default Main;
