@@ -33,6 +33,7 @@ class App extends Component {
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
     // this.updateState = this.updateState.bind(this);
   }
 
