@@ -5,7 +5,6 @@ const FontAwesome = require('react-fontawesome');
 const Intro = (props) => {
   const responseGoogle = (response) => {
     if (response.type === 'success') {
-      this.props.changePage('Main');
       fetch('https://nudge-server.herokuapp.com/contacts', {
         method: 'POST',
         headers: {
@@ -18,9 +17,10 @@ const Intro = (props) => {
       })
       .then(res => res.json())
       .catch(error => console.error('Error:', error))
-      .then(response => {
-        console.log(`RESPONSE!!!! ${response} RESONSE.USERS!!! ${response.users}`);
-        this.props.updateState({ contacts: response.users })});
+      .then(r => {
+        console.log(`RESPONSE!!!! ${r} RESONSE.USERS!!! ${r.users}`);
+        this.props.updateState({ contacts: r.users })});
+        this.props.changePage('Main');
     }
   }
 
