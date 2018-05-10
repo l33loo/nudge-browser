@@ -42,9 +42,10 @@ export default class Login extends Component {
         'Content-Type': 'application/json'
       }),
       // credentials: 'same-origin'
-    }).then(res => res.json())
+    })
+    .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(response => this.props.updateState({ tagName: "Setting" }));
+    .then(response => this.props.updateState({ tagName: "Setting" })); // this.props.changePage('Main');
   }
 
   componentDidMount() {
