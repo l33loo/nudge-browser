@@ -5,7 +5,9 @@ import NavBar from './NavBar.jsx';
 import Intro from './Intro.jsx';
 import Registration from './Registration.jsx';
 import Setting from './Setting.jsx';
-import Main from './Main.jsx'
+import Main from './Main.jsx';
+import Footer from './Footer.jsx';
+
 // const fetch = fetch(); //gives error
 // import phone from './red-phone.jpg';
 // import logo from './logoNudge.png';
@@ -21,8 +23,8 @@ class App extends Component {
       timeLastActivity: 0,
       contacts: [],
       notificationsEnabled: true,
-      tagName: "Login",
-      loggedIn: true // for development
+      tagName: "Intro",
+      loggedIn: false // for development
     }
 
     // this.checkLoginStatus = this.checkLoginStatus.bind(true);
@@ -97,7 +99,7 @@ class App extends Component {
       return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
     } else {
       switch(this.state.tagName) {
-        case "Login":
+        case "Intro":
           return <Intro renderPage={ this.changePage } />;
         case "Registration":
           return <Registration renderPage={ this.changePage } />;
@@ -154,13 +156,11 @@ class App extends Component {
     const tagName = this.getTagName();
     return (
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
-        <div id="phone-image">
-
-        <Intro updateState={ this.updateState } />
-        </div>
-          <NavBar renderPage={ this.changePage } />
-          {tagName}
+        <NavBar renderPage={ this.changePage } />
+        {tagName}
+        <Footer />
       </div>
+
     );
   }
 }
