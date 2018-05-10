@@ -19,7 +19,7 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
-        props.updateState(loggedIn: true);
+        props.updateState({ loggedIn: true });
         props.changePage('Main');
         console.log(resp.status);
       })
