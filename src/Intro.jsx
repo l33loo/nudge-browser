@@ -19,6 +19,8 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
+        this.props.updateState({ loggedIn: true });
+        this.props.changePage('Main');
         console.log(resp.status);
       })
       .catch((error) => {
