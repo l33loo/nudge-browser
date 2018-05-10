@@ -2,8 +2,16 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 const FontAwesome = require('react-fontawesome');
 
-const Intro = (props) => {
-  const responseGoogle = (response) => {
+export default class Intro extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tagName = "Intro";
+    }
+    this.reponseGoogle = this.responseGoogle.bind(this);
+  }
+
+ responseGoogle(response) => {
     console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
       // console.log("GOOGLE LOGIN SUCCESS");
@@ -20,7 +28,7 @@ const Intro = (props) => {
       })
       .then((resp) => {
         // props.updateState({ loggedIn: true });
-        props.changePage('Main');
+        this.props.changePage('Main');
         console.log(resp.status);
       })
       .catch((error) => {
@@ -32,6 +40,7 @@ const Intro = (props) => {
     // }
   }
 
+  render() {
   return (
     <div className="Intro">
       <h1>
@@ -52,7 +61,6 @@ const Intro = (props) => {
     </div>
   );
 }
-
-export default Intro;
+}
 
 
