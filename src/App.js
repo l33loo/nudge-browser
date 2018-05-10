@@ -114,10 +114,12 @@ class App extends Component {
     if (this.state.loggedIn) {
       fetch("https://nudge-server.herokuapp.com/contacts")
       .then(function(response) {
-        return response;
+        console.log(`RESPONSE!!!!: ${response}`);
+        return response.json();
       })
       .then(function(resp) {
-        console.log(resp);
+          console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
+
         // const users = resp.users;
         // this.setState({ contacts: users });
       });
@@ -132,10 +134,10 @@ class App extends Component {
           // credentials: 'include'
         })
         .then(function(response) {
-          return response.json();
+          return response;
         })
         .then(function(resp) {
-          console.log(resp.users);
+          console.log(resp);
         });
       }}, 5000);
     }
