@@ -42,6 +42,6 @@ export default class Main extends Component {
       <NewContact renderPage={ this.props.renderPage } />;
     };
 
-    asyncRendering(renderCb);
+    return asyncRendering(renderCb);
   }
 }
