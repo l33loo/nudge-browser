@@ -2,16 +2,8 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 const FontAwesome = require('react-fontawesome');
 
-export default class Intro extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tagName = "Intro";
-    }
-    this.reponseGoogle = this.responseGoogle.bind(this);
-  }
-
- responseGoogle(response) => {
+const Intro = (props) => {
+  const responseGoogle = (response) => {
     console.log(`GOOGLE RESPONSE! ${response}`);
     // if (response.type === 'success') {
       // console.log("GOOGLE LOGIN SUCCESS");
@@ -27,11 +19,7 @@ export default class Intro extends Component {
         }),
       })
       .then((resp) => {
-        // props.updateState({ loggedIn: true });
-        console.log(resp.status);
-      })
-      .then(() => {
-        this.props.changePage('Main');
+        window.localStorage.setItem('nudge_token', resp);
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
@@ -42,7 +30,6 @@ export default class Intro extends Component {
     // }
   }
 
-  render() {
   return (
     <div className="Intro">
       <h1>
@@ -53,6 +40,21 @@ export default class Intro extends Component {
       <GoogleLogin
         id='google-login'
         clientId="241417537066-elmbirp4ups9h0cjp73u70nkgur98nq4.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+      ><FontAwesome name='google' />
+      <span> Login with Google</span>
+      </GoogleLogin>
+
+    </div>
+  );
+}
+
+export default Intro;
+
+
+irp4ups9h0cjp73u70nkgur98nq4.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={this.responseGoogle}
         onFailure={this.responseGoogle}
