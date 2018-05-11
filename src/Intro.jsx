@@ -19,7 +19,7 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
-        window.localStorage.setItem('nudge_token', resp);
+        window.localStorage.setItem('nudge_token', resp.toString());
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
