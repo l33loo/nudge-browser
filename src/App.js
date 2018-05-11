@@ -23,7 +23,7 @@ class App extends Component {
       timeLastActivity: 0,
       contacts: [],
       notificationsEnabled: true,
-      tagName: "Intro",
+      tagName: "Main",
       loggedIn: false // for development
     }
 
