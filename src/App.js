@@ -114,8 +114,9 @@ class App extends Component {
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
+    console.log(`USERRRR ID: ${userId} and STRING ${userId}`);
     if (userId) {
-      fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
+      fetch(`https://nudge-server.herokuapp.com/contacts/${userId.toString()}`)
       .then((response) => {
         console.log(`RESPONSE!!!!: ${response}`);
         return response.json();
