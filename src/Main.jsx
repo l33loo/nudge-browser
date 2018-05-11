@@ -11,7 +11,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
-    return fetch(`https://nudge-server.herokuapp.com/contacts/2`) //change to ${userId}
+    return fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
