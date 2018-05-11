@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './Contact.jsx';
+import NoContact from './NoContact.jsx';
 
 export default class Main extends Component {
   constructor() {
@@ -28,10 +29,11 @@ export default class Main extends Component {
       console.log(`CONTACTS MAP ${contact}`);
       return <Contact contact={ contact } />;
     });
-    return (
+    return this.state.contacts.length ?
       <div className='contacts'>
         { cont }
       </div>
-    );
+    :
+    <NoContact />;
   }
 }
