@@ -39,7 +39,7 @@ export default class NewContact extends Component {
         'Content-Type': 'application/json'
       },
     })
-    .then(res => res.json())
+    .then(res => res)
     .catch(error => console.error('Error:', error))
     .then(response => this.props.renderPage('Main'));
   }
