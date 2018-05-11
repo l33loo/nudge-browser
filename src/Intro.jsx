@@ -20,8 +20,11 @@ const Intro = (props) => {
       })
       .then((resp) => {
         console.log(`LOOOOCAL STORAGE: ${resp}, and STRING ${resp.toString()}`);
-        window.localStorage.setItem('nudge_token', resp.toString());
+        return response.json();
       })
+      .then((r) => {
+        console.log(`REPONSE USER ID ${r}`);
+        window.localStorage.setItem('nudge_token', r))
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
         throw error;
