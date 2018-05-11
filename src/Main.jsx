@@ -12,7 +12,7 @@ export default class Main extends Component {
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
     console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
-    if (userId) {
+    // if (userId) {
       fetch(`https://nudge-server.herokuapp.com/contacts/1`)
       .then((response) => {
         console.log(`RESPONSE!!!!: ${response}`);
@@ -24,7 +24,7 @@ export default class Main extends Component {
         newState["contacts"] = resp.users;
         this.setState(newState);
       });
-    }
+    // }
   }
 
   render() {
