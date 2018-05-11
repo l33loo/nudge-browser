@@ -18,12 +18,12 @@ const NavBar = (props) => {
   return userId ?
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <span className="menu"><span className="about-link" onClick={ linkAbout } style={{cursor:'pointer'}}>About</span></span>
+      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span></span>
     </header>
   :
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span></span>
+      <span className="menu"><span className="about-link" onClick={ linkAbout } style={{cursor:'pointer'}}>About</span></span>
     </header>;
 };
 
