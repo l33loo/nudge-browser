@@ -201,7 +201,7 @@ button:hover {
   text-align: right;
 }
 
-.Intro {
+.Intro, form {
   grid-column: 4 / 10 ;
   grid-row: 3;
   margin: 0 auto;
