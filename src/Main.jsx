@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './Contact.jsx';
-import NoContact from './NoContact.jsx';
+import NewContact from './NewContact.jsx';
 
 export default class Main extends Component {
   constructor() {
@@ -34,6 +34,6 @@ export default class Main extends Component {
         { cont }
       </div>
     :
-    <NoContact />;
+    <NewContact />;
   }
 }
