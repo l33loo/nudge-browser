@@ -4,7 +4,7 @@ const FontAwesome = require('react-fontawesome');
 
 const Intro = (props) => {
   const responseGoogle = (response) => {
-    console.log(`GOOGLE RESPONSE! ${response} and TOKEN ${response.hg}`);
+    console.log(`GOOGLE RESPONSE! ${response} and TOKEN ${response.tokenId} and BASIC PROFILE ${response.getBasicProfile()}`);
     // if (response.type === 'success') {
       // console.log("GOOGLE LOGIN SUCCESS");
       // this.props.changePage('Main');
