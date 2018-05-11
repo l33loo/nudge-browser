@@ -36,6 +36,7 @@ export default class Main extends Component {
     });
     return (
       <div className='contacts'>
+        <div>TEST</div>
         { cont }
       </div>
     );
