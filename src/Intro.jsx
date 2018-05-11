@@ -15,7 +15,7 @@ const Intro = (props) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          firstParam: response.idToken
+          firstParam: response.tokenId
         }),
       })
       .then((resp) => {
