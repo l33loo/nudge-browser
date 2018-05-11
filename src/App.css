@@ -39,20 +39,9 @@
   grid-column: 2 / 12;
 }
 
-.login-link {
-  grid-column: 10;
-}
-
-.register-link {
+.about-link {
   grid-column: 11;
-}
-
-.register-link {
   padding-left: 10px;
-}
-
-.login-link {
-  padding-right: 10px;
 }
 
 .menu {
