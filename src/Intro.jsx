@@ -24,7 +24,8 @@ const Intro = (props) => {
       })
       .then((r) => {
         console.log(`REPONSE USER ID ${r}`);
-        window.localStorage.setItem('nudge_token', r))
+        window.localStorage.setItem('nudge_token', r);
+      })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
         throw error;
