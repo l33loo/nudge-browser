@@ -23,7 +23,7 @@ class App extends Component {
       timeLastActivity: 0,
       contacts: [],
       notificationsEnabled: true,
-      tagName: "Intro",
+      tagName: "Main",
       loggedIn: false // for development
     }
 
@@ -113,20 +113,22 @@ class App extends Component {
   // function to check if user logged in (for conditionals)
 
   componentDidMount() {
-    // if (this.state.loggedIn) {
-    //   fetch("https://nudge-server.herokuapp.com/contacts")
-    //   .then((response) => {
-    //     console.log(`RESPONSE!!!!: ${response}`);
-    //     return response.json();
-    //   })
-    //   .then((resp) => {
-    //       console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
+    const userId = window.localStorage.getItem('nudge_token');
+    console.log(`USERRRR ID: ${userId} and STRING ${userId}`);
+    if (userId) {
+      fetch(`https://nudge-server.herokuapp.com/contacts/${userId.toString()}`)
+      .then((response) => {
+        console.log(`RESPONSE!!!!: ${response}`);
+        return response.json();
+      })
+      .then((resp) => {
+          console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
 
-    //     const users = resp.users;
-    //     this.setState({ contacts: users });
-    //   });
-    // }
-    if (this.state.loggedIn && this.state.notificationsEnabled) {
+        const users = resp.users;
+        this.setState({ contacts: users });
+      });
+    }
+    if (userId && this.state.notificationsEnabled) {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
           // console.log("Ping server!"); //this.pingServer();
