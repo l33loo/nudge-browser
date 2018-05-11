@@ -9,16 +9,22 @@ const NavBar = (props) => {
     props.renderPage("Registration");
   }
 
-  const linkLogin = () => {
-    props.renderPage("Login");
+  const linkAbout = () => {
+    props.renderPage("About");
   }
-  // conditionals
-  return (
+
+  const userId = window.localStorage.getItem('nudge_token');
+
+  return userId ?
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <span className="menu"><span className="about-link" onClick={ linkAbout } style={{cursor:'pointer'}}>About</span></span>
+    </header>
+  :
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <span className="menu"><span className="login-link" onClick={ linkLogin } style={{cursor:'pointer'}}>Login</span><span className="register-link" onClick={ linkRegistration } style={{cursor:'pointer'}}>Register</span></span>
-    </header>
-  );
+    </header>;
 };
 
 export default NavBar;
