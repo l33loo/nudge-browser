@@ -19,6 +19,7 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
+        console.log(resp);
         window.localStorage.setItem('nudge_token', resp.toString());
       })
       .catch((error) => {
