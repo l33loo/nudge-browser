@@ -7,10 +7,11 @@ export default class Main extends Component {
     this.state = {
       contacts: []
     }
+  }
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
-    console.log(`USERRRR ID: ${userId} and STRING ${userId}`);
+    console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
     if (userId) {
       fetch(`https://nudge-server.herokuapp.com/contacts/${userId.toString()}`)
       .then((response) => {
