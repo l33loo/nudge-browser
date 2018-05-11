@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export default class NewContact extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         contact: {
           nickname: "",
@@ -39,8 +39,7 @@ export default class NewContact extends Component {
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(response => this.props.updateState({ response, tagName: "Main" }));
-
+    .then(response => this.props.renderPage('Main'));
   }
 
   render() {
