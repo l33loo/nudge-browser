@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Contact from './Contact.jsx';
 
 export default class Main extends Component {
@@ -21,7 +21,7 @@ export default class Main extends Component {
       .then((resp) => {
         console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
         const newState = {};
-        newState[contacts] = resp.users;
+        newState["contacts"] = resp.users;
         this.setState(newState);
       });
     }
