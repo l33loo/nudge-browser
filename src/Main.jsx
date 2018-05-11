@@ -25,15 +25,23 @@ export default class Main extends Component {
   }
 
   render() {
-    const cont = this.state.contacts.map((contact) => {
-      console.log(`CONTACTS MAP ${contact}`);
-      return <Contact contact={ contact } />;
-    });
-    return this.state.contacts.length ?
-      <div className='contacts'>
-        { cont }
-      </div>
-    :
-    <NewContact renderPage={ this.props.renderPage } />;
+
+    const asyncRendering = (cb) => {
+      const cont = this.state.contacts.map((contact) => {
+        console.log(`CONTACTS MAP ${contact}`);
+        return <Contact contact={ contact } />;
+      });
+    };
+
+    const renderCb = () => {
+      return this.state.contacts.length ?
+        <div className='contacts'>
+          { cont }
+        </div>
+      :
+      <NewContact renderPage={ this.props.renderPage } />;
+    };
+
+    asyncRendering(renderCb);
   }
 }
