@@ -30,9 +30,9 @@ export default class Main extends Component {
   }
 
   render() {
-    const cont = this.state.contacts.forEach((contact) => {
-      console.log(`FOREACH ${contact}`);
-      return <Contact contact={ contact } />
+    const cont = this.state.contacts.map((contact) => {
+      console.log(`CONTACTS MAP ${contact}`);
+      return <Contact contact={ contact } />;
     });
     return (
       <div className='contacts'>
