@@ -1,7 +1,9 @@
+// Keep file for future use in case needed.
+
 import React, { Component } from 'react';
 // const fetch = fetch();
 
-export default class Login extends Component {
+export default class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
