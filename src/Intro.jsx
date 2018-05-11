@@ -19,8 +19,8 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
-        console.log(`LOOOOCAL STORAGE: ${resp}, and STRING ${resp.toString()}`);
-        return response.json();
+        // console.log(`LOOOOCAL STORAGE: ${resp}, and STRING ${resp.toString()}`);
+        return resp.json();
       })
       .then((r) => {
         console.log(`REPONSE USER ID ${r}`);
