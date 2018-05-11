@@ -17,15 +17,15 @@ export default class Main extends Component {
       .then((response) => {
         console.log(`RESPONSE CONTACTS!!!!: ${response}`);
         var temp = response.json();
-        var blah = JSON.parse(response);
-        console.log(`TEMP: ${temp} and BLAH PARSE ${blah}`);
+        // var blah = JSON.parse(response);
+        console.log(`TEMP: ${temp}`);
         return response.json();
       })
       .then((resp) => {
-        console.log(`CONTACTS JSON!!!! ${resp}, USERSSS ${resp.users}`);
+        // console.log(`CONTACTS JSON!!!! ${resp}, USERSSS ${resp.users}`);
         const newState = {};
         newState["contacts"] = resp.users;
-        console.log(`NEW STATE ${newState}`);
+        // console.log(`NEW STATE ${newState}`);
         this.setState({ newState });
         console.log(`NEW THIS.STATE.CONTACTS: ${this.state.contacts}`);
       });
