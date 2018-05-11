@@ -45,6 +45,7 @@ const Intro = (props) => {
       <GoogleLogin
         id='google-login'
         clientId="241417537066-elmbirp4ups9h0cjp73u70nkgur98nq4.apps.googleusercontent.com"
+        prompt='select_account'
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
