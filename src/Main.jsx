@@ -5,7 +5,7 @@ export default class Main extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      contacts: []
     }
   }
 
@@ -20,17 +20,18 @@ export default class Main extends Component {
       })
       .then((resp) => {
         console.log(`CONTACTS JSON!!!! ${resp}, USERSSS ${resp.users}`);
-        // const newState = {};
-        // newState["contacts"] = resp.users;
-        // console.log(`NEW STATE ${newState}`);
-        this.setState(resp);
-        console.log(`NEW THIS.STATE.CONTACTS: ${this.state.users}`);
+        const newState = {};
+        newState["contacts"] = resp.users;
+        console.log(`NEW STATE ${newState}`);
+        this.setState({ newState });
+        console.log(`NEW THIS.STATE.CONTACTS: ${this.state.contacts}`);
       });
     // }
   }
 
   render() {
-    const cont = this.state.users.forEach((contact) => {
+    const cont = this.state.contacts.forEach((contact) => {
+      console.log(`FOREACH ${contact}`);
       return <Contact contact={ contact } />
     });
     return (
