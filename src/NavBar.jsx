@@ -23,7 +23,7 @@ const NavBar = (props) => {
   :
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <span className="menu"><span className="login-link" onClick={ linkLogin } style={{cursor:'pointer'}}>Login</span><span className="register-link" onClick={ linkRegistration } style={{cursor:'pointer'}}>Register</span></span>
+      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span></span>
     </header>;
 };
 
