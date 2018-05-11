@@ -30,7 +30,7 @@ export default class NewContact extends Component {
     event.preventDefault();
     const contact = this.state.contact;
     const userId = window.localStorage.getItem('nudge_token');
-    console.log("I AM HERE AT LAST!!!";)
+    console.log("I AM HERE AT LAST!!!");
     fetch(`https://nudge-server.herokuapp.com/insert/${userId}`, {
       method: 'POST',
       body: JSON.stringify(contact),
