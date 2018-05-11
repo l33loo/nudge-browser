@@ -128,7 +128,7 @@ class App extends Component {
         this.setState({ contacts: users });
       });
     }
-    if (this.state.loggedIn && this.state.notificationsEnabled) {
+    if (userId && this.state.notificationsEnabled) {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
           // console.log("Ping server!"); //this.pingServer();
