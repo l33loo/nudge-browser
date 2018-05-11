@@ -13,7 +13,7 @@ export default class Main extends Component {
     const userId = window.localStorage.getItem('nudge_token');
     console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
     // if (userId) {
-      fetch(`https://nudge-server.herokuapp.com/contacts/1`)
+      fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
       .then((response) => {
         console.log(`RESPONSE!!!!: ${response}`);
         return response.json();
