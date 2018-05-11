@@ -19,7 +19,7 @@ const Intro = (props) => {
         }),
       })
       .then((resp) => {
-        console.log(resp);
+        console.log(`LOOOOCAL STORAGE: ${resp}, and STRING ${resp.toString()}`);
         window.localStorage.setItem('nudge_token', resp.toString());
       })
       .catch((error) => {
