@@ -114,20 +114,6 @@ class App extends Component {
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
-    console.log(`USERRRR ID: ${userId} and STRING ${userId}`);
-    if (userId) {
-      fetch(`https://nudge-server.herokuapp.com/contacts/${userId.toString()}`)
-      .then((response) => {
-        console.log(`RESPONSE!!!!: ${response}`);
-        return response.json();
-      })
-      .then((resp) => {
-          console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
-
-        const users = resp.users;
-        this.setState({ contacts: users });
-      });
-    }
     if (userId && this.state.notificationsEnabled) {
       setInterval(() => {
         if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
