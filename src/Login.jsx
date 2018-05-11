@@ -1,3 +1,5 @@
+// Keep file for future use in case needed.
+
 import React, { Component } from 'react';
 // const fetch = fetch(); //gives error
 // import NavBar from './NavBar.jsx';
