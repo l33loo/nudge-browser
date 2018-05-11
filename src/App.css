@@ -225,7 +225,7 @@ button:hover {
   color: #00add9;
 }
 
-.contact {
+.contacts {
   grid-column: 4 / 10;
   grid-row: 3;
   color: white;
