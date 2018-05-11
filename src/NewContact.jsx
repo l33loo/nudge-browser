@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class NoContact extends Component {
+export default class NewContact extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,6 +40,7 @@ export default class NoContact extends Component {
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => this.props.updateState({ response, tagName: "Main" }));
+
   }
 
   render() {
