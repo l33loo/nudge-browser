@@ -33,7 +33,7 @@ export default class NewContact extends Component {
     console.log("I AM HERE AT LAST!!!");
     fetch(`https://nudge-server.herokuapp.com/insert/${userId}`, {
       method: 'POST',
-      body: contact,
+      body: JSON.stringify(contact),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
