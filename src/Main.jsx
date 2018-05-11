@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Contact from './Contact.jsx';
 
-const Main = ({ contacts }) => {
-  const contact = contacts.map((contact) => (<Contact contact={ contact } />));
-  return (
-    <div className='contacts'>
-      { contact }
-    </div>
-  );
-};
+export default class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contacts: []
+    }
+  }
 
-export default Main;
+  componentDidMount() {
+    const userId = window.localStorage.getItem('nudge_token');
+    console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
+    // if (userId) {
+      fetch(`https://nudge-server.herokuapp.com/contacts/1`)
+      .then((response) => {
+        console.log(`RESPONSE!!!!: ${response}`);
+        return response.json();
+      })
+      .then((resp) => {
+        console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
+        const newState = {};
+        newState["contacts"] = resp.users;
+        this.setState(newState);
+      });
+    // }
+  }
+
+  render() {
+    const contact = this.state.contacts.map((contact) => (<Contact contact={ contact } />));
+    return (
+      <div className='contacts'>
+        { contact }
+      </div>
+    );
+  }
+}
