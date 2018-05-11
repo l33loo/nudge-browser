@@ -10,7 +10,6 @@ export default class NoContact extends Component {
         }
       };
 
-    this.linkLogin = this.linkLogin.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
