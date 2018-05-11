@@ -5,8 +5,8 @@ export default class NoContact extends Component {
     super();
     this.state = {
         contact: {
-          contact_name: "",
-          contact_email: ""
+          nickname: "",
+          email: ""
         }
       };
 
@@ -27,18 +27,19 @@ export default class NoContact extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    // const contact = this.state.contact;
-    // const userId = window.localStorage.getItem('nudge_token');
-    // fetch(`/contact/${userId}`, {
-    //   method: 'POST',
-    //   body: JSON.stringify(contact),
-    //   headers: new Headers({
-    //     'Content-Type': 'application/json'
-    //   })
-    // })
-    // .then(res => res.json())
-    // .catch(error => console.error('Error:', error))
-    // .then(response => this.props.updateState({ response, tagName: "Main" }));
+    const contact = this.state.contact;
+    const userId = window.localStorage.getItem('nudge_token');
+    fetch(`https://nudge-server.herokuapp.com/insert/${userId}`, {
+      method: 'POST',
+      body: JSON.stringify(contact),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => this.props.updateState({ response, tagName: "Main" }));
   }
 
   render() {
