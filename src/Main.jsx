@@ -3,8 +3,8 @@ import Contact from './Contact.jsx';
 import NewContact from './NewContact.jsx';
 
 export default class Main extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       contacts: []
     }
@@ -34,6 +34,6 @@ export default class Main extends Component {
         { cont }
       </div>
     :
-    <NewContact />;
+    <NewContact renderPage={ this.props.renderPage } />;
   }
 }
