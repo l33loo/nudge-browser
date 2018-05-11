@@ -51,11 +51,11 @@ export default class NewContact extends Component {
         <div className="form-section">
           <div className="form-field">
           <label>Contact's name</label>
-          <input name="contact_name" value={ this.state.contact.contact_name } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
+          <input name="contact_name" value={ this.state.contact.nickname } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Contact's email</label>
-            <input name="contact_email" value={ this.state.contact.contact_email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+            <input name="contact_email" value={ this.state.contact.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
