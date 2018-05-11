@@ -225,6 +225,12 @@ button:hover {
   color: #00add9;
 }
 
+.contact {
+  grid-column: 4 / 10;
+  grid-row: 3;
+  color: white;
+}
+
 .Footer {
   border-top: 1px solid white;
   grid-row: 5;
