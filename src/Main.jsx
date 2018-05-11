@@ -11,27 +11,31 @@ export default class Main extends Component {
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
-    console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
+    // console.log(`USERRRR ID: ${userId} and STRING ${userId} and TYPE ${typeof userId}`);
     // if (userId) {
       fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
       .then((response) => {
-        console.log(`RESPONSE!!!!: ${response}`);
+        console.log(`RESPONSE CONTACTS!!!!: ${response}`);
         return response.json();
       })
       .then((resp) => {
-        console.log(`JSON!!!! ${resp}, USERSSS? ${resp.users}`);
+        console.log(`CONTACTS JSON!!!! ${resp}, USERSSS ${resp.users}`);
         const newState = {};
         newState["contacts"] = resp.users;
+        console.log(`NEW STATE ${newState}`);
         this.setState(newState);
+        console.log(`NEW THIS.STATE.CONTACTS: ${this.state.contacts}`);
       });
     // }
   }
 
   render() {
-    const contact = this.state.contacts.map((contact) => (<Contact contact={ contact } />));
+    const cont = this.state.contacts.forEach((contact) => {
+      return <Contact contact={ contact } />
+    });
     return (
       <div className='contacts'>
-        { contact }
+        { cont }
       </div>
     );
   }
