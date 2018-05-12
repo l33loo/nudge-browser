@@ -39,10 +39,8 @@ const Intro = (props) => {
     <div className="Intro">
       <h1>
         <span>IF YOU GO DARK,<span className='spacer'></span><br />
-        <span className='spacer'></span><span id="nudge">NUDGE</span> WILL RAISE THE FLAG.</span>
-      </h1><br />
-
-      <GoogleLogin
+        <span className='spacer'></span><span id="nudge">NUDGE</span> WILL RAISE THE FLAG.</span><br />
+        <GoogleLogin
         id='google-login'
         clientId="241417537066-elmbirp4ups9h0cjp73u70nkgur98nq4.apps.googleusercontent.com"
         prompt='select_account'
@@ -52,6 +50,9 @@ const Intro = (props) => {
       ><FontAwesome name='google' />
       <span> Login with Google</span>
       </GoogleLogin>
+      </h1>
+
+
 
     </div>
   );
