@@ -58,6 +58,7 @@ class App extends Component {
   // }
 
   loggedIn(bool) {
+    console.log(`CHANGED this.state.loggedIn to ${bool}`);
     this.state.loggedIn = bool;
   }
 
