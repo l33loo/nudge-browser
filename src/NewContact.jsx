@@ -41,22 +41,20 @@ export default class NewContact extends Component {
 
   render() {
     return (
-      <div className='to-center'>
-        <form className="registration" onSubmit={ this.onSubmit }>
-          <h1>Add a contact</h1>
-          <div className="form-section">
-            <div className="form-field">
-            <label>Contact's name</label>
-            <input name="nickname" value={ this.state.nickname } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
-            </div>
-            <div className="form-field">
-              <label>Contact's email</label>
-              <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
-            </div>
+      <form className="registration" onSubmit={ this.onSubmit }>
+        <h1>Add a contact</h1>
+        <div className="form-section">
+          <div className="form-field">
+          <label>Contact's name</label>
+          <input name="nickname" value={ this.state.nickname } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
           </div>
-          <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
-        </form>
-      </div>
+          <div className="form-field">
+            <label>Contact's email</label>
+            <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+          </div>
+        </div>
+        <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
+      </form>
     );
   }
 }
