@@ -29,7 +29,8 @@ export default class Main extends Component {
       console.log(`CONNNT ${cont} and CONTACT ${contact}`);
       return <Contact contact={ contact } />;
     });
-    //make async
+
+    console.log(`RETURN CONNNT ${cont}`);
     return cont ?
       <div className='contacts'>
         { cont }
