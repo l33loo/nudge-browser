@@ -41,7 +41,7 @@ export default class Main extends Component {
       return <Contact contact={ contact } />;
     });
 
-    return checkState.length ?
+    return checkContacts.length ?
       <div className='contacts'>
         { cont }
       </div>
