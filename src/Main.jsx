@@ -43,7 +43,10 @@ export default class Main extends Component {
 
     return checkContacts.length ?
       <div className='contacts'>
-        { cont }
+        <h1>Your contacts</h1>
+        <ol>
+          { cont }
+        </ol>
       </div>
     :
     <NewContact updateContactsArr={ this.updateContactsArr } />;
