@@ -13,6 +13,10 @@ const NavBar = (props) => {
 
   const userId = window.localStorage.getItem('nudge_token');
 
+  const logout = () => {
+    console.log('logout')
+  }
+
   return userId ?
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
