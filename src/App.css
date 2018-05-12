@@ -251,7 +251,7 @@ button:hover {
   border-top: 1px solid white;
   grid-row: 5;
   grid-column: 2 / 12;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
 }
 
@@ -283,6 +283,6 @@ button:hover {
 
 .Footer h1 {
   padding-top: 10px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
