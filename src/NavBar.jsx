@@ -32,7 +32,6 @@ const NavBar = (props) => {
           onClick={logout}
         >
         </GoogleLogout>
-        <span className="settings-link" style={{cursor:'pointer'}}>Settings</span>
       </span>
     </header>
   :
