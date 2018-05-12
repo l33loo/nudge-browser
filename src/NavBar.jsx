@@ -1,8 +1,6 @@
 import React from 'react';
 import logo from './logoNudgeBrowser.png';
-
-// function to change menu depending on login status
-
+import { GoogleLogout } from 'react-google-login';
 
 const NavBar = (props) => {
   const linkRegistration = () => {
@@ -18,7 +16,17 @@ const NavBar = (props) => {
   return userId ?
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span><span className="logout" style={{cursor:'pointer'}}>Logout</span><span className="settings-link" style={{cursor:'pointer'}}>Settings</span></span>
+      <span className="menu">
+        <span className="loggedin-as">Logged in as { userId }</span>
+        <GoogleLogout
+          className="logout"
+          style={{cursor:'pointer'}}
+          buttonText="Logout"
+          onLogoutSuccess={logout}
+        >
+        </GoogleLogout>
+        <span className="settings-link" style={{cursor:'pointer'}}>Settings</span>
+      </span>
     </header>
   :
     <header className="App-header">
@@ -28,3 +36,4 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
+
