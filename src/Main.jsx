@@ -8,6 +8,12 @@ export default class Main extends Component {
     this.state = {
       contacts: []
     }
+
+    this.updateContactsArr = this.updateContactsArr.bind(this);
+  }
+
+  updateContactsArr(obj) {
+    this.state.contacts.push(obj);
   }
 
   componentDidMount() {
@@ -34,6 +40,6 @@ export default class Main extends Component {
         { cont }
       </div>
     :
-    <NewContact renderPage={ this.props.renderPage } />;
+    <NewContact updateContactsArr={ this.updateContactsArr } />;
   }
 }
