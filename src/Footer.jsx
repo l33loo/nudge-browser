@@ -9,9 +9,9 @@ const Footer = ({ contact }) => {
       </div>
       <div className="team">
         <h1>Team</h1>
-        <span><a href="https://github.com/tomgavant">Tom Avant</a> | </span>
-        <span><a href="https://github.com/Etherkavu">Brian Holden</a> | </span>
-        <span><a href="https://github.com/l33loo">Lila Karpowicz</a></span>
+        <span className="tom"><a href="https://github.com/tomgavant">Tom Avant</a></span>
+        <span className="brian"><a href="https://github.com/Etherkavu">Brian Holden</a></span>
+        <span className="lila"><a href="https://github.com/l33loo">Lila Karpowicz</a></span>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@
   background-position: center center;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100px 25vh auto 25vh 100px;
+  grid-template-rows: 100px 10vh auto 10vh 100px;
 }
 
 .App-logo {
@@ -217,7 +217,7 @@ button:hover {
 }
 
 .Intro h1 {
-  font: normal 80px 'PT Sans Narrow', Sans-serif;
+  font: normal 8.0vmin 'PT Sans Narrow', Sans-serif;
   text-align: center;
   margin: auto;
 }
@@ -261,6 +261,19 @@ button:hover {
 
 .Footer .team {
   float: right;
+}
+
+.team .tom {
+  padding-right: 5px;
+}
+
+.team .brian {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.team .lila {
+  padding-left: 5px;
 }
 
 .team a {
