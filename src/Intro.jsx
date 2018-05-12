@@ -24,7 +24,6 @@ const Intro = (props) => {
       })
       .then((r) => {
         console.log(`REPONSE USER ID ${r}`);
-        props.loggedIn(true);
         window.localStorage.setItem('nudge_token', r);
       })
       .catch((error) => {
