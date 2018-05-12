@@ -29,7 +29,7 @@ export default class Main extends Component {
       return <Contact contact={ contact } />;
     });
 
-    return this.state.contacts ?
+    return this.state.contacts.length ?
       <div className='contacts'>
         { cont }
       </div>
