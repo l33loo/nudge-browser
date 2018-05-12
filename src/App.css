@@ -219,10 +219,17 @@ button:hover {
 .Intro h1 {
   font: normal 80px 'PT Sans Narrow', Sans-serif;
   text-align: center;
+  margin: auto;
 }
 
 #google-login {
   margin: 0 auto;
+}
+
+.Intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Intro span {
