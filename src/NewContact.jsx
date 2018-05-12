@@ -4,11 +4,9 @@ export default class NewContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        contact: {
-          nickname: "",
-          email: ""
-        }
-      };
+      nickname: "",
+      email: ""
+    };
 
     this.handleInput = this.handleInput.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -20,9 +18,7 @@ export default class NewContact extends Component {
     const name = target.name;
 
     this.setState({
-      contact: {
-        [name]: value
-      }
+      [name]: value
     });
   }
 
@@ -33,7 +29,7 @@ export default class NewContact extends Component {
     console.log("I AM HERE AT LAST!!!");
     fetch(`https://nudge-server.herokuapp.com/insert/${userId}`, {
       method: 'POST',
-      body: JSON.stringify(contact),
+      body: JSON.stringify(this.state),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
