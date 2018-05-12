@@ -14,6 +14,7 @@ const NavBar = (props) => {
   const userId = window.localStorage.getItem('nudge_token');
 
   const logout = () => {
+    window.localStorage.removeItem('nudge_token');
     console.log('logout')
   }
 
