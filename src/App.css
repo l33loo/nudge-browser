@@ -77,6 +77,12 @@
   font-weight: bold;
 }
 
+.to-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 form {
   max-width:550px;
   padding: 30px 20px;
