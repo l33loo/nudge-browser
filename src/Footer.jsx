@@ -5,7 +5,7 @@ const Footer = ({ contact }) => {
     <div className='Footer'>
       <div className="description">
         <h1>Description</h1>
-        <span> NUDGE was developped as a final project for the Lighthouse Labs Web Development Bootcamp (Victoria - Mar 2018 Cohort).</span>
+        <span> NUDGE was developed as a final project for the Lighthouse Labs Web Development Bootcamp (Victoria - Mar 2018 Cohort).</span>
       </div>
       <div className="team">
         <h1>Team</h1>
