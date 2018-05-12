@@ -36,6 +36,8 @@ export default class Main extends Component {
         { cont }
       </div>;
     } else {
+    console.log(`ELSEEEEE :)`);
+
     return <NewContact renderPage={ this.props.renderPage } />;
     }
   }
