@@ -3,8 +3,7 @@ import './App.css';
 // import Main from './Main.jsx';
 import NavBar from './NavBar.jsx';
 import Intro from './Intro.jsx';
-import Registration from './Registration.jsx';
-import Setting from './Setting.jsx';
+import NewContact from './NewContact.jsx';
 import Main from './Main.jsx';
 import Footer from './Footer.jsx';
 
@@ -105,12 +104,12 @@ class App extends Component {
       return <Intro updateState={ this.updateState } loggedIn={ this.loggedIn } renderPage={ this.changePage } />;
     } else {
       switch(this.state.tagName) {
-        case "Registration":
-          return <Registration renderPage={ this.changePage } />;
+        case "NewContact":
+          return <NewContact renderPage={ this.changePage } />;
         case "Main":
           return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
-        case "Setting":
-          return <Setting renderPage={ this.changePage } />;
+        // case "Setting":
+        //   return <Setting renderPage={ this.changePage } />;
         default:
           console.log("Error: invalid component tag name");
       }
