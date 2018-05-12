@@ -18,7 +18,7 @@ const NavBar = (props) => {
   return userId ?
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span></span>
+      <span className="menu"><span className="loggedin-as">Logged in as { userId }</span><span className="logout" style={{cursor:'pointer'}}>Logout</span><span className="settings-link" style={{cursor:'pointer'}}>Settings</span></span>
     </header>
   :
     <header className="App-header">
