@@ -32,6 +32,8 @@ export default class Main extends Component {
 
     console.log(`RETURN CONNNT ${cont}`);
     if (cont) {
+      console.log("IIIIFFFFFF");
+
       return <div className='contacts'>
         { cont }
       </div>;
