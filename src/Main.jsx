@@ -35,11 +35,13 @@ export default class Main extends Component {
   }
 
   render() {
+    const checkContacts = [];
     const cont = this.state.contacts.map((contact) => {
+      checkContacts.push(contact);
       return <Contact contact={ contact } />;
     });
 
-    return this.state.contacts.length ?
+    return checkState.length ?
       <div className='contacts'>
         { cont }
       </div>
