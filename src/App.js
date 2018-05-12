@@ -35,6 +35,7 @@ class App extends Component {
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
+    this.loggedIn = this.loggedIn.bind(this);
     // this.updateState = this.updateState.bind(this);
   }
 
@@ -55,6 +56,10 @@ class App extends Component {
   //       this.setState();
   //     })
   // }
+
+  loggedIn(bool) {
+    this.state.loggedIn = bool;
+  }
 
   updateState(data) {
     this.setState(data);
@@ -96,7 +101,7 @@ class App extends Component {
 
   getTagName() {
     if (!window.localStorage.getItem('nudge_token')) {
-      return <Intro updateState={ this.updateState } renderPage={ this.changePage } />;
+      return <Intro updateState={ this.updateState } loggedIn={ this.loggedIn } renderPage={ this.changePage } />;
     } else {
       switch(this.state.tagName) {
         case "Registration":
@@ -110,7 +115,10 @@ class App extends Component {
       }
     }
   }
-  // function to check if user logged in (for conditionals)
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.loggedIn !== nextState;
+  }
 
   componentDidMount() {
     const userId = window.localStorage.getItem('nudge_token');
