@@ -152,7 +152,7 @@ class App extends Component {
     const tagName = this.getTagName();
     return (
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
-        <NavBar renderPage={ this.changePage } />
+        <NavBar renderPage={ this.changePage } loggedIn={ this.loggedIn } />
         {tagName}
         <Footer />
       </div>
