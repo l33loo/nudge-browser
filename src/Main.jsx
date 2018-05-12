@@ -30,6 +30,10 @@ export default class Main extends Component {
       });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.contacts !== nextState;
+  }
+
   render() {
     const cont = this.state.contacts.map((contact) => {
       return <Contact contact={ contact } />;
