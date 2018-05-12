@@ -13,11 +13,26 @@ const NavBar = (props) => {
 
   const userId = window.localStorage.getItem('nudge_token');
 
-  const logout = (e) => {
+  const logout = () => {
+    // e.preventDefault();
+    // window.localStorage.removeItem('nudge_token');
+    fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
+    // .catch((error) => {
+    //   throw error;
+    // });
+
     window.localStorage.removeItem('nudge_token');
     props.loggedIn(false);
-    console.log('logout');
-  }
+
+    // .then((resp) => {
+    //   console.log(resp);
+
+    // })
+
+
+    // props.loggedIn(false);
+    // console.log('logout');
+  };
 
   return userId ?
     <header className="App-header">
@@ -25,11 +40,9 @@ const NavBar = (props) => {
       <span className="menu">
         <span className="loggedin-as">Logged in as { userId }</span>
         <GoogleLogout
-          className="logout"
-          style={{cursor:'pointer'}}
+
           buttonText="Logout"
           onLogoutSuccess={logout}
-          onClick={logout}
         >
         </GoogleLogout>
       </span>
