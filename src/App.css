@@ -255,6 +255,14 @@ button:hover {
   color: white;
 }
 
+.contacts h1 {
+  text-align: center;
+}
+
+.contacts li {
+  font-size: 2.5vh;
+}
+
 .Footer {
   border-top: 1px solid white;
   grid-row: 5;

@@ -44,7 +44,7 @@ export default class Main extends Component {
     return checkContacts.length ?
       <div className='contacts'>
         <div>
-          <h1>Your contacts</h1><br />
+          <h1>Your emergency contacts</h1><br />
           <ol>
             { cont }
           </ol>
