@@ -44,6 +44,21 @@
   padding-left: 10px;
 }
 
+.loggedin-as {
+  grid-column: 9;
+  padding-right: 10px;
+}
+
+.menu .logout {
+  grid-column: 10;
+  padding-left: 10px;
+}
+
+.settings-link {
+  grid-column: 11;
+  padding-left: 10px;
+}
+
 .menu {
   color: white;
   float: right;
@@ -52,7 +67,9 @@
   font-size: 1.75em;
 }
 
-.menu span:hover {
+.about-link:hover,
+.menu .logout:hover,
+.settings-link:hover {
   color: #00add9;
 }
 
