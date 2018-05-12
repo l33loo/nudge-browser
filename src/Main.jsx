@@ -26,21 +26,14 @@ export default class Main extends Component {
 
   render() {
     const cont = this.state.contacts.map((contact) => {
-      console.log(`CONNNT ${cont} and CONTACT ${contact}`);
       return <Contact contact={ contact } />;
     });
 
-    console.log(`RETURN CONNNT ${cont}`);
-    if (cont) {
-      console.log("IIIIFFFFFF");
-
-      return <div className='contacts'>
+    return this.state.contacts ?
+      <div className='contacts'>
         { cont }
-      </div>;
-    } else {
-    console.log(`ELSEEEEE :)`);
-
-    return <NewContact renderPage={ this.props.renderPage } />;
-    }
+      </div>
+    :
+    <NewContact renderPage={ this.props.renderPage } />;
   }
 }
