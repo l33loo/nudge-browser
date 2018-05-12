@@ -26,8 +26,8 @@ export default class Main extends Component {
 
   render() {
     const cont = this.state.contacts.map((contact) => {
+      console.log(`CONNNT ${cont} and CONTACT ${contact}`);
       return <Contact contact={ contact } />;
-      console.log(`CONNNT ${cont}`);
     });
     //make async
     return cont ?
