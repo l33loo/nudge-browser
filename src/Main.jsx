@@ -31,11 +31,12 @@ export default class Main extends Component {
     });
 
     console.log(`RETURN CONNNT ${cont}`);
-    return cont ?
-      <div className='contacts'>
+    if (cont) {
+      return <div className='contacts'>
         { cont }
-      </div>
-    :
-    <NewContact renderPage={ this.props.renderPage } />;
+      </div>;
+    } else {
+    return <NewContact renderPage={ this.props.renderPage } />;
+    }
   }
 }
