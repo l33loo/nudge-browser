@@ -11,6 +11,8 @@ export default class Main extends Component {
 
     this.updateContactsArr = this.updateContactsArr.bind(this);
     this.addContact = this.addContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+    this.getContacts = this.getContacts.bind(this);
   }
 
   updateContactsArr(obj) {
@@ -21,7 +23,22 @@ export default class Main extends Component {
     this.props.renderPage("NewContact");
   }
 
-  componentDidMount() {
+  deleteContact(event) {
+    fetch(`https://nudge-server.herokuapp.com/delete/${window.localStorage.getItem('nudge_token')}`, {
+      method: 'POST',
+      body: JSON.stringify(event.target.name),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(res => res)
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log(response))
+    .then(() => this.getContacts());
+  }
+
+  getContacts() {
     const userId = window.localStorage.getItem('nudge_token');
     return fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
       .then((response) => response.json())
@@ -35,6 +52,10 @@ export default class Main extends Component {
       });
   }
 
+  componentDidMount() {
+    this.getContacts();
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.contacts !== nextState;
   }
@@ -42,8 +63,9 @@ export default class Main extends Component {
   render() {
     const checkContacts = [];
     const cont = this.state.contacts.map((contact) => {
+      console.log(`CONTACT ***** ${contact.nickname}`);
       checkContacts.push(contact);
-      return <Contact contact={ contact } />;
+      return <div><Contact contact={ contact } /><button name={ contact } onClick={ this.deleteContact }>Delete</button></div>;
     });
 
     return checkContacts.length ?
