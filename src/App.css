@@ -47,11 +47,13 @@
 .loggedin-as {
   grid-column: 9;
   padding-right: 10px;
+  font-style: italic;
 }
 
 .menu .logout {
   grid-column: 10;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .settings-link {
