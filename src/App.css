@@ -15,7 +15,7 @@
   background-position: center center;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100px 25vh auto 25vh 100px;
+  grid-template-rows: 100px 10vh auto 10vh 100px;
 }
 
 .App-logo {
@@ -44,6 +44,18 @@
   padding-left: 10px;
 }
 
+.loggedin-as {
+  grid-column: 10;
+  padding-right: 10px;
+  font-style: italic;
+}
+
+.menu .logout {
+  grid-column: 11;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .menu {
   color: white;
   float: right;
@@ -52,8 +64,19 @@
   font-size: 1.75em;
 }
 
-.menu span:hover {
+.about-link:hover,
+.menu .logout:hover,
+.settings-link:hover,
+.team a:hover {
   color: #00add9;
+  font-weight: bold;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5vh;
 }
 
 form {
@@ -197,12 +220,19 @@ button:hover {
 }
 
 .Intro h1 {
-  font: normal 80px 'PT Sans Narrow', Sans-serif;
+  font: normal 8.0vmin 'PT Sans Narrow', Sans-serif;
   text-align: center;
+  margin: auto;
 }
 
 #google-login {
   margin: 0 auto;
+}
+
+.Intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Intro span {
@@ -220,8 +250,51 @@ button:hover {
   color: white;
 }
 
+.contacts h1 {
+  text-align: center;
+}
+
+.contacts li {
+  font-size: 2.5vh;
+}
+
 .Footer {
   border-top: 1px solid white;
   grid-row: 5;
   grid-column: 2 / 12;
+  font-size: 18px;
+  color: white;
+}
+
+.Footer .description {
+  float: left;
+}
+
+.Footer .team {
+  float: right;
+}
+
+.team .tom {
+  padding-right: 10px;
+}
+
+.team .brian {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.team .lila {
+  padding-left: 10px;
+}
+
+.team a {
+  color: white;
+  text-decoration: none;
+}
+
+.Footer h1 {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 20px;
+  font-weight: bold;
 }
