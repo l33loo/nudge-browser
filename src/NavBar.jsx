@@ -13,9 +13,10 @@ const NavBar = (props) => {
 
   const userId = window.localStorage.getItem('nudge_token');
 
-  const logout = () => {
+  const logout = (e) => {
+    e.preventDefault();
     window.localStorage.removeItem('nudge_token');
-    console.log('logout')
+    console.log('logout');
   }
 
   return userId ?
@@ -28,6 +29,7 @@ const NavBar = (props) => {
           style={{cursor:'pointer'}}
           buttonText="Logout"
           onLogoutSuccess={logout}
+          onClick={logout}
         >
         </GoogleLogout>
         <span className="settings-link" style={{cursor:'pointer'}}>Settings</span>
