@@ -74,6 +74,7 @@
 .settings-link:hover,
 .team a:hover {
   color: #00add9;
+  font-weight: bold;
 }
 
 form {
@@ -264,16 +265,16 @@ button:hover {
 }
 
 .team .tom {
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .team .brian {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .team .lila {
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 .team a {
@@ -282,7 +283,8 @@ button:hover {
 }
 
 .Footer h1 {
-  padding-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 0px;
   font-size: 20px;
   font-weight: bold;
 }
