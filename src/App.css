@@ -45,20 +45,15 @@
 }
 
 .loggedin-as {
-  grid-column: 9;
+  grid-column: 10;
   padding-right: 10px;
   font-style: italic;
 }
 
 .menu .logout {
-  grid-column: 10;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.settings-link {
   grid-column: 11;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .menu {
