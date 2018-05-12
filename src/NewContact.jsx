@@ -24,7 +24,6 @@ export default class NewContact extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const contact = this.state.contact;
     const userId = window.localStorage.getItem('nudge_token');
     console.log("I AM HERE AT LAST!!!");
     fetch(`https://nudge-server.herokuapp.com/insert/${userId}`, {
@@ -47,11 +46,11 @@ export default class NewContact extends Component {
         <div className="form-section">
           <div className="form-field">
           <label>Contact's name</label>
-          <input name="nickname" value={ this.state.contact.nickname } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
+          <input name="nickname" value={ this.state.nickname } placeholder="Jane Doe" onChange={this.handleInput} /><br/>
           </div>
           <div className="form-field">
             <label>Contact's email</label>
-            <input name="email" value={ this.state.contact.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
+            <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
