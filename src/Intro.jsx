@@ -24,8 +24,11 @@ const Intro = (props) => {
       })
       .then((r) => {
         console.log(`REPONSE USER ID ${r}`);
-        props.loggedIn(true);
         window.localStorage.setItem('nudge_token', r);
+      })
+      .then(() => {
+        props.loggedIn(true);
+        console.log(`LOOOOGGED IN???`);
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");

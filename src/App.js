@@ -122,11 +122,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const userId = window.localStorage.getItem('nudge_token');
-    if (userId && this.state.notificationsEnabled) {
-      setInterval(() => {
-        if (Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
-          // console.log("Ping server!"); //this.pingServer();
+    setInterval(() => {
+      if (this.state.loggedIn && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+        // console.log("Ping server!"); //this.pingServer();
         fetch("https://nudge-server.herokuapp.com/ping", {
           method: 'GET',
           //mode : 'no-cors'//,
@@ -138,8 +136,8 @@ class App extends Component {
         .then(function(resp) {
           console.log(resp);
         });
-      }}, 5000);
-    }
+      }
+    }, 5000);
     // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
     // .then(function(response) {
     //   return response.json();
@@ -157,7 +155,6 @@ class App extends Component {
         {tagName}
         <Footer />
       </div>
-
     );
   }
 }
