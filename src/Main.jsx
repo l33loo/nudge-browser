@@ -10,10 +10,15 @@ export default class Main extends Component {
     }
 
     this.updateContactsArr = this.updateContactsArr.bind(this);
+    this.addContact = this.addContact.bind(this);
   }
 
   updateContactsArr(obj) {
     this.state.contacts.push(obj);
+  }
+
+  addContact() {
+    this.props.renderPage("NewContact");
   }
 
   componentDidMount() {
@@ -44,7 +49,7 @@ export default class Main extends Component {
     return checkContacts.length ?
       <div className='contacts'>
         <div>
-          <h1>Your emergency contacts</h1><br />
+          <h1>Your emergency contacts<span onClick={ this.addContact }>+</span></h1><br />
           <ol>
             { cont }
           </ol>
