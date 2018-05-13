@@ -24,9 +24,11 @@ export default class Main extends Component {
   }
 
   deleteContact(event) {
+    const contact = { nickname: event.target.name, email: event.target.value };
+    console.log(`EVENT**** ${JSON.stringify(contact)} + ${typeof contact}`);
     fetch(`https://nudge-server.herokuapp.com/delete/${window.localStorage.getItem('nudge_token')}`, {
       method: 'POST',
-      body: JSON.stringify(event.target.name),
+      body: JSON.stringify(contact),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -63,9 +65,9 @@ export default class Main extends Component {
   render() {
     const checkContacts = [];
     const cont = this.state.contacts.map((contact) => {
-      console.log(`CONTACT ***** ${contact.nickname}`);
+      // console.log(`CONTACT ***** ${contact.toString()}`);
       checkContacts.push(contact);
-      return <div><Contact contact={ contact } /><button name={ contact } onClick={ this.deleteContact }>Delete</button></div>;
+      return <div><Contact contact={ contact } /><button name={ contact.nickname } value={ contact.email } onClick={ this.deleteContact }>Delete</button></div>;
     });
 
     return checkContacts.length ?
