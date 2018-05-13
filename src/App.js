@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Main from './Main.jsx';
 import NavBar from './NavBar.jsx';
 import Intro from './Intro.jsx';
 import NewContact from './NewContact.jsx';
-import Main from './Main.jsx';
+import ContactsList from './ContactsList.jsx';
 import Footer from './Footer.jsx';
 
 // const fetch = fetch(); //gives error
@@ -15,49 +14,63 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user_id: 0,
       first_name: "",
-      lastName: "",
       email: "",
       timeLastActivity: 0,
       contacts: [],
       notificationsEnabled: true,
-      tagName: "Main",
+      tagName: "ContactsList",
       loggedIn: false // for development
     }
 
-    // this.checkLoginStatus = this.checkLoginStatus.bind(true);
     this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
     this.trackActivity = this.trackActivity.bind(this);
     this.getTimeSinceLastActivity = this.getTimeSinceLastActivity.bind(this);
-    // this.verifyIfPing = this.verifyIfPing.bind(this);
     this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
     this.loggedIn = this.loggedIn.bind(this);
-    // this.updateState = this.updateState.bind(this);
+    this.getContacts = this.getContacts.bind(this);
+    this.addContact = this.addContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+    this.asyncContactsPage = this.asyncContactsPage.bind(this);
   }
 
-  // checkLoginStatus {
-  //    return session id
-  //}
+  getContacts() {
+    const userId = window.localStorage.getItem('nudge_token');
+    return fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          contacts: responseJson.users
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
 
-  // changeNotificationStatus() {
-  // pass to settings checkbox
-  //}
+  addContact() {
+    this.changePage("NewContact");
+  }
 
-  // updateState() {
-  //   fetch(`/users/${user_id}.json`)
-  //     .then(function(response) {
-  //       return response.json();
-  //     })
-  //     .then(function(userJson) {
-  //       this.setState();
-  //     })
-  // }
+  deleteContact(event) {
+    fetch(`https://nudge-server.herokuapp.com/delete/${window.localStorage.getItem('nudge_token')}`, {
+      method: 'POST',
+      body: JSON.stringify(event.target.name),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(res => res)
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log(response))
+    .then(() => this.getContacts());
+  }
 
   loggedIn(bool) {
-    this.state.loggedIn = bool;
+    this.setState({ loggedIn: [bool] });
     console.log(`CHANGED this.state.loggedIn to ${bool} CHECK: ${this.state.loggedIn}`);
   }
 
@@ -67,7 +80,7 @@ class App extends Component {
 
   //merge with previous function
   changePage(tagName) {
-    this.setState({ tagName: tagName});
+    this.setState({ tagName: tagName });
   }
 
   verifyIfTrackActivity() {
@@ -105,22 +118,37 @@ class App extends Component {
     } else {
       switch(this.state.tagName) {
         case "NewContact":
-          return <NewContact renderPage={ this.changePage } />;
-        case "Main":
-          return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
-        // case "Setting":
-        //   return <Setting renderPage={ this.changePage } />;
+          return <NewContact getContacts={ this.getContacts } renderPage={ this.changePage } />;
+        case "ContactsList":
+          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } />
         default:
           console.log("Error: invalid component tag name");
       }
     }
   }
 
+  asyncContactsPage(cb) {
+    this.getContacts();
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.loggedIn !== nextState;
+    return this.state.loggedIn !== nextState || this.state.contacts !== nextState || this.state.tagName !== nextState;
   }
 
   componentDidMount() {
+
+    if (window.localStorage.getItem('nudge_token')) {
+      this.asyncContactsPage(() => {
+        if (window.localStorage.getItem('nudge_token')) {
+          if (this.state.contacts.length) {
+            this.changePage("ContactsList");
+          } else {
+            this.changePage("NewContact");
+          }
+        }
+      });
+    }
+
     setInterval(() => {
       if (this.state.loggedIn && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
         // console.log("Ping server!"); //this.pingServer();
@@ -143,6 +171,7 @@ class App extends Component {
   }
 
   render() {
+
     const tagName = this.getTagName();
     return (
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >

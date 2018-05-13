@@ -10,6 +10,7 @@ export default class NewContact extends Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.cancel = this.cancel.bind(this);
   }
 
   handleInput(event) {
@@ -20,6 +21,10 @@ export default class NewContact extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  cancel() {
+    this.props.renderPage("ContactsList");
   }
 
   onSubmit(event) {
@@ -35,8 +40,9 @@ export default class NewContact extends Component {
       },
     })
     .then(res => res)
-    .catch(error => console.error('Error:', error))
-    .then(response => this.props.updateContactsArr(this.state));
+    .then(response => this.props.getContacts())
+    .then(() => this.props.renderPage('ContactsList'))
+    .catch(error => console.error('Error:', error));
   }
 
   render() {
@@ -54,6 +60,7 @@ export default class NewContact extends Component {
           </div>
         </div>
         <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
+        <button id="cancel" style={{cursor:'pointer'}} onClick={ this.cancel }>Cancel</button>
       </form>
     );
   }

@@ -181,7 +181,7 @@ input {
 
 }
 
-button {
+form button {
   position: relative;
   display: block;
   padding: 12px 39px 12px 39px;
@@ -195,6 +195,10 @@ button {
   border: 1px solid #16a085;
   border-width: 1px 1px 3px;
   margin-bottom: 10px;
+}
+
+button #cancel {
+  background: tomato;
 }
 
 button:hover {
