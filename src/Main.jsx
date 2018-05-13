@@ -65,7 +65,7 @@ export default class Main extends Component {
     const cont = this.state.contacts.map((contact) => {
       console.log(`CONTACT ***** ${contact.nickname}`);
       checkContacts.push(contact);
-      return <div><Contact contact={ contact } /><button name={ contact } onClick={ this.deleteContact }>Delete</button></div>;
+      return <div><Contact contact={ contact } /><button name={ contact } onClick={ this.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
     });
 
     return checkContacts.length ?
