@@ -55,9 +55,10 @@ class App extends Component {
   }
 
   deleteContact(event) {
+    const contact = { nickname: event.target.name, email: event.target.value };
     fetch(`https://nudge-server.herokuapp.com/delete/${window.localStorage.getItem('nudge_token')}`, {
       method: 'POST',
-      body: JSON.stringify(event.target.name),
+      body: JSON.stringify(contact),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -150,7 +151,7 @@ class App extends Component {
     }
 
     setInterval(() => {
-      if (this.state.loggedIn && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+      if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
         // console.log("Ping server!"); //this.pingServer();
         fetch(`https://nudge-server.herokuapp.com/ping/${window.localStorage.getItem('nudge_token')}`)
         .then(function(response) {
@@ -160,7 +161,7 @@ class App extends Component {
           console.log(resp);
         });
       }
-    }, 5000);
+    }, 30000);
     // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
     // .then(function(response) {
     //   return response.json();
