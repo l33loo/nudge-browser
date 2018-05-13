@@ -71,7 +71,7 @@ export default class Main extends Component {
     return checkContacts.length ?
       <div className='contacts'>
         <div>
-          <h1>Your emergency contacts<span onClick={ this.addContact }>+</span></h1><br />
+          <h1>Your emergency contacts<span onClick={ this.addContact } style={{cursor:'pointer'}}>+</span></h1><br />
           <ol>
             { cont }
           </ol>
