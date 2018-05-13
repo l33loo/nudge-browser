@@ -36,7 +36,8 @@ export default class NewContact extends Component {
     })
     .then(res => res)
     .catch(error => console.error('Error:', error))
-    .then(response => this.props.updateContactsArr(this.state));
+    .then(response => this.props.getContacts())
+    .then(() => this.props.renderPage('Main'));
   }
 
   render() {
