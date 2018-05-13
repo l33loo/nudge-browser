@@ -197,7 +197,7 @@ form button {
   margin-bottom: 10px;
 }
 
-button #cancel {
+#cancel, #delete {
   background: tomato;
 }
 
