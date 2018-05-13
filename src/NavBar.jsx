@@ -3,15 +3,18 @@ import logo from './logoNudgeBrowser.png';
 import { GoogleLogout } from 'react-google-login';
 
 const NavBar = (props) => {
-  const linkRegistration = () => {
-    props.renderPage("Registration");
-  }
+
+  const userId = window.localStorage.getItem('nudge_token');
 
   const linkAbout = () => {
     props.renderPage("About");
   }
 
-  const userId = window.localStorage.getItem('nudge_token');
+  const linkContactsList = () => {
+    if (userId) {
+      props.renderPage("ContactsList");
+    }
+  }
 
   const logout = () => {
     // e.preventDefault();
@@ -36,7 +39,7 @@ const NavBar = (props) => {
 
   return userId ?
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" onClick={ linkContactsList } style={{cursor:'pointer'}} />
       <span className="menu">
         <span className="loggedin-as">Logged in as { userId }</span>
         <GoogleLogout
