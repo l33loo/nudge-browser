@@ -9,14 +9,9 @@ export default class Main extends Component {
       contacts: []
     }
 
-    this.updateContactsArr = this.updateContactsArr.bind(this);
     this.addContact = this.addContact.bind(this);
     this.deleteContact = this.deleteContact.bind(this);
     this.getContacts = this.getContacts.bind(this);
-  }
-
-  updateContactsArr(obj) {
-    this.state.contacts.push(obj);
   }
 
   addContact() {
@@ -78,6 +73,6 @@ export default class Main extends Component {
         </div>
       </div>
     :
-    <NewContact updateContactsArr={ this.updateContactsArr } />;
+    <NewContact getContacts={ this.getContacts } />;
   }
 }
