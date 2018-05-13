@@ -3,7 +3,7 @@ import Contact from './Contact.jsx';
 
 const ContactsList = (props) => {
   const cont = props.contacts.map((contact, index) => {
-    return <div><Contact key={ index } contact={ contact } /><button id="delete" name={ contact } onClick={ props.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
+    return <div><Contact key={ index } contact={ contact } /><button id="delete" name={ contact.nickname } value={ contact.email } onClick={ props.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
   });
 
   return (
