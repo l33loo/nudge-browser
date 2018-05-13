@@ -35,6 +35,7 @@ class App extends Component {
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
     this.loggedIn = this.loggedIn.bind(this);
+    this.getContacts = this.getContacts.bind(this);
     // this.updateState = this.updateState.bind(this);
   }
 
@@ -55,6 +56,20 @@ class App extends Component {
   //       this.setState();
   //     })
   // }
+
+  getContacts() {
+    const userId = window.localStorage.getItem('nudge_token');
+    return fetch(`https://nudge-server.herokuapp.com/contacts/${userId}`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          contacts: responseJson.users
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
 
   loggedIn(bool) {
     this.state.loggedIn = bool;
@@ -105,7 +120,7 @@ class App extends Component {
     } else {
       switch(this.state.tagName) {
         case "NewContact":
-          return <NewContact renderPage={ this.changePage } />;
+          return <NewContact getContacts={ this.getContacts } renderPage={ this.changePage } />;
         case "Main":
           return <Main contacts={ this.state.contacts } renderPage={ this.changePage } />
         // case "Setting":
