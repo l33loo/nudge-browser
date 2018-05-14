@@ -35,6 +35,8 @@ class App extends Component {
     this.deleteContact = this.deleteContact.bind(this);
     this.asyncContactsPage = this.asyncContactsPage.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.disableNotifications = this.disableNotifications.bind(this);
+    this.enableNotifications = this.enableNotifications.bind(this);
   }
 
   clearState() {
@@ -43,7 +45,7 @@ class App extends Component {
       email: "",
       timeLastActivity: 0,
       contacts: [],
-      notificationsEnabled: true,
+      // notificationsEnabled: true,
       tagName: "ContactsList",
       loggedIn: false
     });
@@ -92,6 +94,32 @@ class App extends Component {
     this.setState(data);
   }
 
+  disableNotifications() {
+      this.setState({ notificationsEnabled : false });
+      // console.log(`NOTIFICATIONS ENABLED false, CHECK ${this.state.notificationsEnabled}`);
+
+
+    // const userId = window.localStorage.getItem('nudge_token');
+    // fetch(`https://nudge-server.herokuapp.com/logout/${userId}`)
+    // .then((response) => {
+    //   this.setState({ notificationsEnabled : false });
+    // })
+    // .catch((error) => {
+    //   throw error;
+    // });
+  }
+
+  enableNotifications() {
+    // fetch(`https://nudge-server.herokuapp.com/login/${userId}`)
+    // .then((response) => this.setState({ notificationsEnabled : true }))
+    // .catch((error) => {
+    //   throw error;
+    // });
+    this.setState({ notificationsEnabled : true });
+    // console.log(`NOTIFICATIONS ENABLED true, CHECK ${this.state.notificationsEnabled}`);
+
+  }
+
   //merge with previous function
   changePage(tagName) {
     this.setState({ tagName: tagName });
@@ -134,7 +162,7 @@ class App extends Component {
         case "NewContact":
           return <NewContact getContacts={ this.getContacts } renderPage={ this.changePage } />;
         case "ContactsList":
-          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } />
+          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } disableNotifications={ this.disableNotifications } enableNotifications={ this.enableNotifications } notificationStatus={ this.state.notificationsEnabled } />
         default:
           console.log("Error: invalid component tag name");
       }
@@ -146,7 +174,7 @@ class App extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.loggedIn !== nextState || this.state.contacts !== nextState || this.state.tagName !== nextState;
+    return this.state.loggedIn !== nextState || this.state.contacts !== nextState || this.state.tagName !== nextState || this.state.notificationsEnabled !== nextState;
     // return this.state.timeLastActivity === nextState;
   }
 
