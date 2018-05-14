@@ -6,6 +6,10 @@ const ContactsList = (props) => {
     return <div><Contact key={ index } contact={ contact } /><button id="delete" name={ contact.nickname } value={ contact.email } onClick={ props.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
   });
 
+  const disableNotifications = () => {
+    fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
+  };
+
   return (
     <div className='contacts'>
       <div>
@@ -13,6 +17,7 @@ const ContactsList = (props) => {
         <ol>
           { cont }
         </ol>
+        <button className="disable" onClick={ disableNotifications }>Disable notifications</button>
       </div>
     </div>
   );
