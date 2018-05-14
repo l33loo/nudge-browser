@@ -38,6 +38,19 @@ class App extends Component {
     this.disableNotifications = this.disableNotifications.bind(this);
     this.enableNotifications = this.enableNotifications.bind(this);
     this.updateState = this.updateState.bind(this);
+    this.refreshContacts = this.refreshContacts.bind(this);
+  }
+
+  refreshContacts() {
+    if (window.localStorage.getItem('nudge_token')) {
+      this.asyncContactsPage(() => {
+        if (this.state.contacts.length) {
+          this.changePage("ContactsList");
+        } else {
+          this.changePage("NewContact");
+        }
+      });
+    }
   }
 
   clearState() {
@@ -111,14 +124,17 @@ class App extends Component {
   }
 
   enableNotifications() {
-    // fetch(`https://nudge-server.herokuapp.com/login/${userId}`)
-    // .then((response) => this.setState({ notificationsEnabled : true }))
-    // .catch((error) => {
-    //   throw error;
-    // });
-    this.setState({ notificationsEnabled : true });
-    // console.log(`NOTIFICATIONS ENABLED true, CHECK ${this.state.notificationsEnabled}`);
-
+    const userId = window.localStorage.getItem('nudge_token');
+    fetch(`https://nudge-server.herokuapp.com/activate/${userId}`)
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        this.setState({ notificationsEnabled : true });
+      }
+    })
+    .catch((error) => {
+      throw error;
+    });
   }
 
   //merge with previous function
@@ -157,7 +173,7 @@ class App extends Component {
 
   getTagName() {
     if (!window.localStorage.getItem('nudge_token')) {
-      return <Intro updateState={ this.updateState } loggedIn={ this.loggedIn } renderPage={ this.changePage } />;
+      return <Intro refreshContacts={ this.refreshContacts } updateState={ this.updateState } loggedIn={ this.loggedIn } renderPage={ this.changePage } />;
     } else {
       switch(this.state.tagName) {
         case "NewContact":
@@ -181,17 +197,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    if (window.localStorage.getItem('nudge_token')) {
-      this.asyncContactsPage(() => {
-        if (window.localStorage.getItem('nudge_token')) {
-          if (this.state.contacts.length) {
-            this.changePage("ContactsList");
-          } else {
-            this.changePage("NewContact");
-          }
-        }
-      });
-    }
+    this.refreshContacts();
 
     setInterval(() => {
       if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
