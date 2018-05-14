@@ -37,6 +37,7 @@ class App extends Component {
     this.clearState = this.clearState.bind(this);
     this.disableNotifications = this.disableNotifications.bind(this);
     this.enableNotifications = this.enableNotifications.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   clearState() {
