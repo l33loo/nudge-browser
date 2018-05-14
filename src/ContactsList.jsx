@@ -6,9 +6,20 @@ const ContactsList = (props) => {
     return <div><Contact key={ index } contact={ contact } /><button id="delete" name={ contact.nickname } value={ contact.email } onClick={ props.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
   });
 
-  const disableNotifications = () => {
-    fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
-  };
+  const handleNotifications = () => {
+    console.log(`NOTIFICATIONS ENABLED ${props.notificationStatus}`);
+    if (props.contacts.length) {
+      return props.notificationStatus ?
+        <div>Notifications currently enabled<button className="disable" onClick={ props.disableNotifications } style={{cursor:'pointer'}}>Disable notifications</button></div>
+      :
+        <div>Notifications currently disabled<button className="enable" onClick={ props.enableNotifications } style={{cursor:'pointer'}}>Enable notifications</button></div>;
+    } else {
+      // props.disableNotifications();
+      return <div>You don't have emergency contacts yet.</div>;
+    }
+  }
+
+  const notifButton = handleNotifications();
 
   return (
     <div className='contacts'>
@@ -17,7 +28,7 @@ const ContactsList = (props) => {
         <ol>
           { cont }
         </ol>
-        <button className="disable" onClick={ disableNotifications }>Disable notifications</button>
+        { notifButton }
       </div>
     </div>
   );
