@@ -44,12 +44,6 @@
   padding-left: 10px;
 }
 
-.loggedin-as {
-  grid-column: 10;
-  padding-right: 10px;
-  font-style: italic;
-}
-
 .menu .logout {
   grid-column: 11;
   padding-left: 10px;
@@ -62,6 +56,13 @@
   padding-bottom: 20px;
   margin-top: 50px;
   font-size: 1.75em;
+}
+
+.loggedin-as {
+  grid-column: 10;
+  padding-right: 30px;
+  font-style: italic;
+  font-size: 24px;
 }
 
 .about-link:hover,
