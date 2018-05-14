@@ -217,6 +217,7 @@ form button,
 
 #cancel, #delete {
   background: tomato;
+  border: 1px solid #d87519;
 }
 
 form button:hover,
@@ -228,7 +229,13 @@ form button:hover,
 }
 
 .disable:hover,
-#cancel:hover,
+#cancel:hover {
+  background: #ff63478a;
+  -moz-box-shadow: inset 0px 2px 2px 0px #d87519;
+  -webkit-box-shadow: inset 0px 2px 2px 0px #d87519;
+  box-shadow: inset 0px 2px 2px 0px #d87519;
+}
+
 #delete:hover {
   background: red;
 }
