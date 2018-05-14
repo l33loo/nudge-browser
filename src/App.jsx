@@ -96,18 +96,18 @@ class App extends Component {
   }
 
   disableNotifications() {
-      this.setState({ notificationsEnabled : false });
-      // console.log(`NOTIFICATIONS ENABLED false, CHECK ${this.state.notificationsEnabled}`);
-
-
-    // const userId = window.localStorage.getItem('nudge_token');
-    // fetch(`https://nudge-server.herokuapp.com/logout/${userId}`)
-    // .then((response) => {
-    //   this.setState({ notificationsEnabled : false });
-    // })
-    // .catch((error) => {
-    //   throw error;
-    // });
+    console.log(`NOTIFICATIONS ENABLED false, CHECK ${this.state.notificationsEnabled}`);
+    const userId = window.localStorage.getItem('nudge_token');
+    fetch(`https://nudge-server.herokuapp.com/deactivate/${userId}`)
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        this.setState({ notificationsEnabled : false });
+      }
+    })
+    .catch((error) => {
+      throw error;
+    });
   }
 
   enableNotifications() {
