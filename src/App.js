@@ -34,6 +34,19 @@ class App extends Component {
     this.addContact = this.addContact.bind(this);
     this.deleteContact = this.deleteContact.bind(this);
     this.asyncContactsPage = this.asyncContactsPage.bind(this);
+    this.clearState = this.clearState.bind(this);
+  }
+
+  clearState() {
+    this.setState({
+      first_name: "",
+      email: "",
+      timeLastActivity: 0,
+      contacts: [],
+      notificationsEnabled: true,
+      tagName: "ContactsList",
+      loggedIn: false
+    });
   }
 
   getContacts() {
@@ -91,7 +104,7 @@ class App extends Component {
 
   trackActivity() {
     this.setState({ timeLastActivity: Date.now() });
-    console.log(this.state.timeLastActivity);
+    // console.log(this.state.timeLastActivity);
   }
 
   getTimeSinceLastActivity() {
@@ -104,12 +117,12 @@ class App extends Component {
 
   pingServer() {
     //ping server POST /users/:id/checkin with session user_id
-    console.log("Ping server!"); // for development
+    // console.log("Ping server!"); // for development
   }
 
   handleServerPings() { // Date.now(), Date.now() + 2hrs
     if (Date.now() - this.state.timeLastActivity < 5000) { // 86400000 -- 24-hr schedule
-      console.log("Ping server!"); //this.pingServer();
+      // console.log("Ping server!"); //this.pingServer();
     }
   }
 
@@ -134,6 +147,7 @@ class App extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.loggedIn !== nextState || this.state.contacts !== nextState || this.state.tagName !== nextState;
+    // return this.state.timeLastActivity === nextState;
   }
 
   componentDidMount() {
@@ -176,7 +190,7 @@ class App extends Component {
     const tagName = this.getTagName();
     return (
       <div className="App" onMouseMove={ this.verifyIfTrackActivity ? this.trackActivity : null } onKeyPress={ this.verifyIfTrackActivity ? this.trackActivity : null } >
-        <NavBar renderPage={ this.changePage } loggedIn={ this.loggedIn } />
+        <NavBar clearState={ this.clearState } renderPage={ this.changePage } loggedIn={ this.loggedIn } />
         {tagName}
         <Footer />
       </div>
