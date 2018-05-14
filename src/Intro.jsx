@@ -4,7 +4,6 @@ const FontAwesome = require('react-fontawesome');
 
 const Intro = (props) => {
   const responseGoogle = (response) => {
-    console.log(`GOOGLE RESPONSE! ${response} and TOKEN ${response.tokenId} and BASIC PROFILE ${response.getBasicProfile()}`);
     // if (response.type === 'success') {
       // console.log("GOOGLE LOGIN SUCCESS");
       // this.props.changePage('Main');
@@ -25,10 +24,13 @@ const Intro = (props) => {
       .then((r) => {
         console.log(`REPONSE USER ID ${r}`);
         window.localStorage.setItem('nudge_token', r);
-      })
-      .then(() => {
-        props.loggedIn(true);
-        console.log(`LOOOOGGED IN???`);
+        window.localStorage.setItem('nudge_name', response.getBasicProfile().getGivenName());
+        window.localStorage.setItem('nudge_email', response.getBasicProfile().getEmail());
+        props.updateState({
+          loggedIn: true,
+          // first_name: firstName,
+          // email: email
+        });
       })
       .catch((error) => {
         console.log("GOOGLE ERROR!!!");
