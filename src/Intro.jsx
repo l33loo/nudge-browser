@@ -26,6 +26,7 @@ const Intro = (props) => {
         window.localStorage.setItem('nudge_token', r);
         window.localStorage.setItem('nudge_name', response.getBasicProfile().getGivenName());
         window.localStorage.setItem('nudge_email', response.getBasicProfile().getEmail());
+        props.refreshContacts();
         props.updateState({
           loggedIn: true,
           // first_name: firstName,
