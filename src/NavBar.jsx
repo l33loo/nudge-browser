@@ -17,15 +17,14 @@ const NavBar = (props) => {
   }
 
   const logout = () => {
-    // e.preventDefault();
-    // window.localStorage.removeItem('nudge_token');
-    fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
-    // .catch((error) => {
-    //   throw error;
-    // });
-
+    console.log("LOgoUT");
     window.localStorage.removeItem('nudge_token');
-    props.loggedIn(false);
+    props.clearState();
+    // fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
+    });
+
+
+
 
     // .then((resp) => {
     //   console.log(resp);
@@ -42,12 +41,7 @@ const NavBar = (props) => {
       <img src={logo} className="App-logo" alt="logo" onClick={ linkContactsList } style={{cursor:'pointer'}} />
       <span className="menu">
         <span className="loggedin-as">Logged in as { userId }</span>
-        <GoogleLogout
-
-          buttonText="Logout"
-          onLogoutSuccess={logout}
-        >
-        </GoogleLogout>
+        <span className="logout" onClick={ logout }>Logout</span>
       </span>
     </header>
   :
