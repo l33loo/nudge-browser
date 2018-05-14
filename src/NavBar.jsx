@@ -26,8 +26,8 @@ const NavBar = (props) => {
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" onClick={ linkContactsList } style={{cursor:'pointer'}} />
       <span className="menu">
-        <span className="loggedin-as">Logged in as { userId }</span>
-        <span className="logout" onClick={ logout }>Logout</span>
+        <span className="loggedin-as">Logged in as { window.localStorage.getItem('nudge_name') } ({ window.localStorage.getItem('nudge_email') })</span>
+        <span className="logout" onClick={ logout } style={{cursor:'pointer'}}>Logout</span>
       </span>
     </header>
   :
