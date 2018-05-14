@@ -10,7 +10,7 @@ const ContactsList = (props) => {
     console.log(`NOTIFICATIONS ENABLED ${props.notificationStatus}`);
     if (props.contacts.length) {
       return props.notificationStatus ?
-        <div>Notifications currently enabled<button className="disable" onClick={ props.disableNotifications } style={{cursor:'pointer'}}>Disable notifications</button></div>
+        <div>Notifications currently enabled (24-hour schedule)<button className="disable" onClick={ props.disableNotifications } style={{cursor:'pointer'}}>Disable notifications</button></div>
       :
         <div>Notifications currently disabled<button className="enable" onClick={ props.enableNotifications } style={{cursor:'pointer'}}>Enable notifications</button></div>;
     } else {
