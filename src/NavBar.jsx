@@ -19,6 +19,8 @@ const NavBar = (props) => {
   const logout = () => {
     console.log("LOgoUT");
     window.localStorage.removeItem('nudge_token');
+    window.localStorage.removeItem('nudge_name');
+    window.localStorage.removeItem('nudge_email');
     props.clearState();
   };
 
