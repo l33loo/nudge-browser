@@ -8,32 +8,18 @@ const NavBar = (props) => {
 
   const linkAbout = () => {
     props.renderPage("About");
-  }
+  };
 
   const linkContactsList = () => {
     if (userId) {
       props.renderPage("ContactsList");
     }
-  }
+  };
 
   const logout = () => {
     console.log("LOgoUT");
     window.localStorage.removeItem('nudge_token');
     props.clearState();
-    // fetch(`https://nudge-server.herokuapp.com/logout/${userId}`);
-    });
-
-
-
-
-    // .then((resp) => {
-    //   console.log(resp);
-
-    // })
-
-
-    // props.loggedIn(false);
-    // console.log('logout');
   };
 
   return userId ?
