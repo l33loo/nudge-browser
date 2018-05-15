@@ -15,13 +15,13 @@ const ContactsList = (props) => {
             <li>Status: ENABLED</li>
             <li>Schedule: 24 hours of inactivity</li>
           </ul>
-          <button className="disable" onClick={ props.disableNotifications } style={{cursor:'pointer'}}>Disable notifications</button>
+          <button className="disable" onClick={ props.disableNotifications } style={{cursor: 'pointer'}}>Disable notifications</button>
       :
           <ul>
             <li>Status: DISABLED</li>
             <li className="strike">Schedule: 24 hours of inactivity</li>
           </ul>
-          <button className="enable" onClick={ props.enableNotifications } style={{cursor:'pointer'}}>Enable notifications</button>
+          <button className="enable" onClick={ props.enableNotifications } style={{cursor: 'pointer'}}>Enable notifications</button>
     } else {
       // props.disableNotifications();
       return <div>You haven't listed any emergency contacts.</div>;
