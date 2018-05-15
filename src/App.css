@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Abel|PT+Sans+Narrow|Yantramanav');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .App {
   min-height: 100vh;
@@ -72,15 +72,16 @@
 form {
   max-width:550px;
   padding: 30px 20px;
-  /*margin: 100px auto;*/
-  background: #F8F8F8;
+  margin: auto;
+  background: none;
   border-radius: 10px;
   -webkit-border-radius:10px;
   -moz-border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
-  font-family: "Roboto";
+  font-family: "Yantramanav";
+  color: white;
 }
 
 form h1 {
@@ -89,8 +90,8 @@ form h1 {
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
-  color: black;
-  font: bold 30px, sans-serif;
+
+  font: normal 30px, sans-serif;
   -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
@@ -99,14 +100,14 @@ form h1 {
 
 label {
   display: block;
-  font: 24px 'PT Sans Narrow', sans-serif;
-  color: black;
+  font: 24px "Yantramanav", sans-serif;
+  color: white;
   margin-bottom: 15px;
 }
 
 .form-section {
   padding: 30px;
-  background: #ededed;
+  background: none;
   border-radius: 6px;
   margin-bottom: 15px;
   color: black;
@@ -115,7 +116,7 @@ label {
 .section {
   color: black;
   font-size: 24px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   margin-right: 8px;
   margin-top: 25px;
   margin-bottom: 15px;
@@ -158,37 +159,27 @@ input {
 
 }
 
-form button,
-.enable {
+form button {
   position: relative;
   display: block;
   padding: 12px 39px 12px 39px;
-  color: black;
+  color: white;
   margin: 0 auto;
-  background: #00add9;
-  font-size: 24px;
+  background: none;
+  font-size: 2.5vmax;
   text-align: center;
   font-weight: bold;
-  width: 100%;
-  border: 1px solid #16a085;
-  border-width: 1px 1px 3px;
-  margin-bottom: 10px;
+  width: auto;
+  border-radius: 10px
+  /*margin-bottom: 10px;*/
+}
+
+.enable {
+  border: 5px solid #00add9;
 }
 
 .disable {
-  position: relative;
-  display: block;
-  padding: 12px 39px 12px 39px;
-  color: black;
-  margin: 0 auto;
-  background: tomato;
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-  width: 100%;
-  border: 1px solid #f4a54d;
-  border-width: 1px 1px 3px;
-  margin-bottom: 10px;
+  border: 5px solid tomato;
 }
 
 #cancel, #delete {
@@ -206,7 +197,7 @@ form button:hover,
 
 .disable:hover,
 #cancel:hover {
-  background: #ff63478a;
+  background: #a04f40;
   -moz-box-shadow: inset 0px 2px 2px 0px #f4a54d;
   -webkit-box-shadow: inset 0px 2px 2px 0px #f4a54d;
   box-shadow: inset 0px 2px 2px 0px #f4a54d;
@@ -247,23 +238,44 @@ form button:hover,
   color: #00add9;
 }
 
-.contacts {
+.dashbord-content {
+  display: flex;
+  justify-content: center;
+}
+
+.dashbord {
   grid-column: 4 / 10;
   grid-row: 3;
   color: white;
-  font-family: "Roboto";
-  display: flex;
-  justify-content: center;
+  font-family: "Yantramanav";
+  font-size: 2.5vh;
+
   align-items: center;
-  font-size: 2.5vh;
 }
 
-.contacts h1 {
+.dashbord h1 {
   text-align: center;
+  font-size: 3.5vh;
+  padding-left: 2vw;
+  padding-bottom: 3vmax;
+  font-family: 'PT Sans Narrow';
 }
 
-.contacts li {
+.dashbord li {
   font-size: 2.5vh;
+}
+
+.notifications {
+  padding-right: 3vmax;
+}
+
+.contacts {
+  padding-left: 3vmax;
+  border-left: solid 1px white;
+}
+
+.contact {
+  padding-bottom: 2vh;
 }
 
 .Footer {
@@ -308,9 +320,14 @@ form button:hover,
 }
 
 .add-contact {
-  padding-left: 2vh;
+  padding-left: 3vw;
+  padding-right: 2vw;
 }
 
 .add-contact:hover {
   color: #00add9;
+}
+
+.strike {
+  text-decoration: line-through;
 }
