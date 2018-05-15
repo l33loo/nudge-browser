@@ -40,7 +40,7 @@ const ContactsList = (props) => {
 
   return (
     <div className='dashbord'>
-      <h1>Dashbord</h1>
+      <h1>Dashboard</h1>
       <div className="dashbord-content">
         <div className="notifications">
           <h2>Notifications</h2>
