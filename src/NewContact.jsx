@@ -24,7 +24,7 @@ export default class NewContact extends Component {
   }
 
   cancel() {
-    this.props.renderPage("ContactsList");
+    this.props.renderPage("Settings");
   }
 
   onSubmit(event) {
@@ -41,7 +41,7 @@ export default class NewContact extends Component {
     })
     .then(res => res)
     .then(response => this.props.getContacts())
-    .then(() => this.props.renderPage('ContactsList'))
+    .then(() => this.props.renderPage('Settings'))
     .catch(error => console.error('Error:', error));
   }
 
