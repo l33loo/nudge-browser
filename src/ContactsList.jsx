@@ -70,7 +70,7 @@ const ContactsList = (props) => {
     :
       <div className="notifications">
         <h2>Notifications<button className="off" onClick={ props.enableNotifications } style={{cursor: 'pointer'}}>OFF</button></h2>
-        <span className="strike inactivity">After 24 hours of inactivity</span>
+        <span className="inactivity">Disabled</span>
       </div>;
   };
 
@@ -78,9 +78,9 @@ const ContactsList = (props) => {
 
   const lastTime = lastActivity();
 
-  const handleDashboard = () => {
+  const handleSettings = () => {
     return props.contacts.length ?
-      <div className="dashbord-content">
+      <div className="settings-content">
         <div className="left-panel">
           { notifications }
           { lastTime }
@@ -97,13 +97,13 @@ const ContactsList = (props) => {
       </div>;
   };
 
-  const dashboard = handleDashboard();
+  const settings = handleSettings();
 
   return (
-    <div className='dashbord'>
-      <h1>Dashboard</h1>
+    <div className='settings'>
+      <h1>Settings</h1>
 
-        { dashboard }
+        { settings }
 
     </div>
   );
