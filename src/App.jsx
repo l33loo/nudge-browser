@@ -23,7 +23,6 @@ class App extends Component {
     this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
     this.trackActivity = this.trackActivity.bind(this);
     this.getTimeSinceLastActivity = this.getTimeSinceLastActivity.bind(this);
-    this.pingServer = this.pingServer.bind(this);
     this.getTagName = this.getTagName.bind(this);
     this.changePage = this.changePage.bind(this);
     this.loggedIn = this.loggedIn.bind(this);
