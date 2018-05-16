@@ -1,5 +1,4 @@
 import React from 'react';
-const FontAwesome = require('react-fontawesome');
 
 const Contact = (props) => {
   return (
