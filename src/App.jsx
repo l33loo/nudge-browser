@@ -20,7 +20,8 @@ class App extends Component {
       contacts: [],
       notificationsEnabled: true,
       tagName: "ContactsList",
-      loggedIn: false // for development
+      loggedIn: false,
+      lastRecordedActivity: Date.now() - 90000000
     }
 
     this.verifyIfTrackActivity = this.verifyIfTrackActivity.bind(this);
@@ -179,7 +180,7 @@ class App extends Component {
         case "NewContact":
           return <NewContact getContacts={ this.getContacts } renderPage={ this.changePage } />;
         case "ContactsList":
-          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } disableNotifications={ this.disableNotifications } enableNotifications={ this.enableNotifications } notificationStatus={ this.state.notificationsEnabled } />
+          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } disableNotifications={ this.disableNotifications } enableNotifications={ this.enableNotifications } notificationStatus={ this.state.notificationsEnabled } lastRecordedActivity={ this.state.lastRecordedActivity } />
         default:
           console.log("Error: invalid component tag name");
       }
@@ -203,12 +204,10 @@ class App extends Component {
       if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
         // console.log("Ping server!"); //this.pingServer();
         fetch(`https://nudge-server.herokuapp.com/ping/${window.localStorage.getItem('nudge_token')}`)
-        .then(function(response) {
-          return response;
+        .then((response) => {
+          this.setState({ lastRecordedActivity: Date.now() });
         })
-        .then(function(resp) {
-          console.log(resp);
-        });
+        .catch(error => console.error('Error:', error));
       }
     }, 30000);
     // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
