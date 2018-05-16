@@ -4,33 +4,8 @@ const FontAwesome = require('react-fontawesome');
 
 const ContactsList = (props) => {
   const cont = props.contacts.map((contact, index) => {
-    return <div className="contact"><Contact key={ index } contact={ contact } /><button id="delete" name={ contact.nickname } value={ contact.email } onClick={ props.deleteContact } style={{cursor:'pointer'}}>Delete</button></div>;
+    return <div className="contact"><li><Contact key={ index } deleteContact={ props.deleteContact } contact={ contact } /></li></div>;
   });
-
-  const handleNotifications = () => {
-    console.log(`NOTIFICATIONS ENABLED ${props.notificationStatus}`);
-    if (props.contacts.length) {
-      return props.notificationStatus ?
-        <div>
-          <ul>
-            <li>After 24 hours of inactivity</li>
-            <li className="notification-status">Enabled</li>
-          </ul>
-          <button className="disable" onClick={ props.disableNotifications } style={{cursor: 'pointer'}}>Disable notifications</button>
-        </div>
-      :
-        <div>
-          <ul>
-            <li className="strike">After 24 hours of inactivity</li>
-            <li className="notification-status">Disabled</li>
-          </ul>
-          <button className="enable" onClick={ props.enableNotifications } style={{cursor: 'pointer'}}>Enable notifications</button>
-        </div>
-    } else {
-      // props.disableNotifications();
-      return <div>You haven't listed any emergency contacts.</div>;
-    }
-  }
 
   const timeLastActivity = Date.now() - props.lastRecordedActivity;
 
@@ -81,32 +56,55 @@ const ContactsList = (props) => {
   const lastActivity = () => {
     const time = getTimeLastActivity();
     return timeLastActivity >= 86400000 ?
-      <div><button className="activity-indicator-red"></button>{ time }</div>
+      <div><h2>Last recorded activity</h2><button className="activity-indicator-red"></button>{ time }</div>
     :
-      <div><button className="activity-indicator-blue"></button>{ time }</div>;
+      <div><h2>Last recorded activity</h2><button className="activity-indicator-blue"></button>{ time }</div>;
   }
 
-  const notifButton = handleNotifications();
+    const handleNotifications = () => {
+    return props.notificationStatus ?
+      <div className="notifications">
+        <h2>Notifications<button className="on" onClick={ props.disableNotifications } style={{cursor: 'pointer'}}>ON</button></h2>
+        <span className="inactivity">After 24 hours of inactivity</span>
+      </div>
+    :
+      <div className="notifications">
+        <h2>Notifications<button className="off" onClick={ props.enableNotifications } style={{cursor: 'pointer'}}>OFF</button></h2>
+        <span className="strike inactivity">After 24 hours of inactivity</span>
+      </div>;
+  };
+
+  const notifications = handleNotifications();
 
   const lastTime = lastActivity();
+
+  const handleDashboard = () => {
+    return props.contacts.length ?
+      <div className="dashbord-content">
+        <div className="left-panel">
+          { notifications }
+          { lastTime }
+        </div>
+        <div className="contacts">
+          <h2>Emergency contacts<FontAwesome className='add-contact' name='plus' onClick={ props.addContact } style={{cursor:'pointer'}} /></h2>
+            <ol>{ cont }</ol>
+        </div>
+      </div>
+    :
+      <div className="no-contacts">
+        <h2>Emergency contacts<FontAwesome className='add-contact' name='plus' onClick={ props.addContact } style={{cursor:'pointer'}} /></h2>
+        <span>You haven't listed any emergency contacts.</span>
+      </div>;
+  };
+
+  const dashboard = handleDashboard();
 
   return (
     <div className='dashbord'>
       <h1>Dashboard</h1>
-      <div className="dashbord-content">
-        <div className="notifications">
-          <h2>Notifications</h2>
-          { notifButton }
-          <h2>Last recorded activity</h2>
-          { lastTime }
-        </div>
-        <div className="contacts">
-          <h2>Emergency contacts<FontAwesome className='add-contact' name='user-plus' onClick={ props.addContact } style={{cursor:'pointer'}} /></h2>
-          <ol>
-            { cont }
-          </ol>
-        </div>
-      </div>
+
+        { dashboard }
+
     </div>
   );
 };
