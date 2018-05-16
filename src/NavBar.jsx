@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logoNudgeBrowser.png';
-import { GoogleLogout } from 'react-google-login';
+// import { GoogleLogout } from 'react-google-login';
 
 const NavBar = (props) => {
 
@@ -40,4 +40,3 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
-
