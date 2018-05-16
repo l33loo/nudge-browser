@@ -25,7 +25,7 @@ const ContactsList = (props) => {
     yr = Math.round(yr * 100) / 100;
 
     if (min === 0) {
-      return "now";
+      return "Now";
     } else if (min === 1) {
       return  "1 minute ago";
     } else if (hr < 1) {
