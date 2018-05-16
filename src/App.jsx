@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './NavBar.jsx';
 import Intro from './Intro.jsx';
 import NewContact from './NewContact.jsx';
-import ContactsList from './ContactsList.jsx';
+import Settings from './Settings.jsx';
 import Footer from './Footer.jsx';
 
 class App extends Component {
