@@ -10,9 +10,9 @@ const NavBar = (props) => {
     props.renderPage("About");
   };
 
-  const linkContactsList = () => {
+  const linkSettings = () => {
     if (userId) {
-      props.renderPage("ContactsList");
+      props.renderPage("Settings");
     }
   };
 
@@ -26,7 +26,7 @@ const NavBar = (props) => {
 
   return userId ?
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" onClick={ linkContactsList } style={{cursor:'pointer'}} />
+      <img src={logo} className="App-logo" alt="logo" onClick={ linkSettings } style={{cursor:'pointer'}} />
       <span className="menu">
         <span className="loggedin-as">Logged in as { window.localStorage.getItem('nudge_name') } ({ window.localStorage.getItem('nudge_email') })</span>
         <span className="logout" onClick={ logout } style={{cursor:'pointer'}}>Logout</span>

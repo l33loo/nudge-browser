@@ -2,7 +2,7 @@ import React from 'react';
 import Contact from './Contact.jsx';
 const FontAwesome = require('react-fontawesome');
 
-const ContactsList = (props) => {
+const Settings = (props) => {
   const cont = props.contacts.map((contact, index) => {
     return <div className="contact"><li><Contact key={ index } deleteContact={ props.deleteContact } contact={ contact } /></li></div>;
   });
@@ -107,4 +107,4 @@ const ContactsList = (props) => {
   );
 };
 
-export default ContactsList;
+export default Settings;
