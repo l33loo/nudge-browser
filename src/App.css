@@ -70,37 +70,24 @@
 }
 
 form {
-  max-width:550px;
+  width: auto;
   padding: 30px 20px;
-  margin: auto;
   background: none;
-  border-radius: 10px;
-  -webkit-border-radius:10px;
-  -moz-border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
-  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
   font-family: "Yantramanav";
   color: white;
+  font-size: 2.5vh;
 }
 
 form h1 {
-  padding: 40px 30px 0px 30px;
-  margin: -30px -30px 30px -30px;
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
-
-  font: normal 30px, sans-serif;
-  -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
   text-align: center;
+  font-size: 4.5vh;
+  padding-bottom: 3vmax;
+  font-family: 'PT Sans Narrow';
 }
 
 label {
   display: block;
-  font: 24px "Yantramanav", sans-serif;
+  font: 2.5vh "Yantramanav", sans-serif;
   color: white;
   margin-bottom: 15px;
 }
@@ -108,15 +95,11 @@ label {
 .form-section {
   padding: 30px;
   background: none;
-  border-radius: 6px;
   margin-bottom: 15px;
-  color: black;
 }
 
 .section {
-  color: black;
-  font-size: 24px;
-  /*font-weight: bold;*/
+  font-size: 2vh;
   margin-right: 8px;
   margin-top: 25px;
   margin-bottom: 15px;
@@ -140,7 +123,7 @@ input {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  width: 100%;
+  width: 20vw;
   padding: 8px;
   border-radius: 6px;
   -webkit-border-radius:6px;
@@ -163,17 +146,13 @@ input {
   position: relative;
   display: block;
   color: white;
-  /*margin: 0 auto;*/
   background: none;
   font-size: 2vh;
-  /*text-align: center;*/
   font-weight: bold;
   width: 8vh;
   border: 5px solid tomato;
   border-radius: 10px;
   float: right;
-  /*border-width: 1px 1px 3px;*/
-  /*margin-bottom: 10px;*/
 }
 
 .on {
@@ -181,18 +160,13 @@ input {
   display: block;
   padding: 12px, 24px, 12px, 24px;
   color: white;
-  /*margin: 0 auto;*/
   background: none;
   font-size: 2vh;
-  /*text-align: center;*/
   font-weight: bold;
   width: 8vh;
   border: 5px solid #00add9;
   border-radius: 10px;
   float: right;
-
-  /*border-width: 1px 1px 3px;*/
-  /*margin-bottom: 10px;*/
 }
 
 #cancel {
@@ -202,11 +176,28 @@ input {
   color: white;
   margin: 0 auto;
   background: none;
-  font-size: 2.5vmax;
+  font-size: 2vh;
   text-align: center;
+  width: 12vmax;
   font-weight: bold;
-  width: auto;
-  border-radius: 10px
+  border: 5px solid tomato;
+  border-radius: 10px;
+}
+
+#add-button {
+  position: relative;
+  display: block;
+  padding: 12px 39px 12px 39px;
+  color: white;
+  margin: 0 auto;
+  background: none;
+  font-size: 2vh;
+  text-align: center;
+  width: 12vmax;
+  font-weight: bold;
+  border: 5px solid #00add9;
+  border-radius: 10px;
+  margin-bottom: 1.5vh;
 }
 
 .delete {
@@ -221,8 +212,8 @@ input {
   font-weight: bold;
 }
 
-form button:hover,
-.on:hover {
+.on:hover,
+#add-button:hover {
   background: #2A6881;
   -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
   -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
@@ -283,7 +274,6 @@ form button:hover,
   color: white;
   font-family: "Yantramanav";
   font-size: 2.5vh;
-
   align-items: center;
 }
 
