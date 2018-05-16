@@ -233,7 +233,7 @@ input {
 }
 
 .Intro, form {
-  grid-column: 4 / 10 ;
+  grid-column: 1 / -1 ;
   grid-row: 3;
   margin: 0 auto;
 }
@@ -269,7 +269,7 @@ input {
 }
 
 .settings {
-  grid-column: 4 / 10;
+  grid-column: 1 / -1;
   grid-row: 3;
   color: white;
   font-family: "Yantramanav";
@@ -398,4 +398,3 @@ input {
 .inactivity {
   padding-left: 2vh;
 }
-
