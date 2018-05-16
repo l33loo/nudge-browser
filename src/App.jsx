@@ -15,7 +15,7 @@ class App extends Component {
       timeLastActivity: 0,
       contacts: [],
       notificationsEnabled: true,
-      tagName: "ContactsList",
+      tagName: "Settings",
       loggedIn: false,
       lastRecordedActivity: Date.now() - 90000000
     }
@@ -46,7 +46,7 @@ class App extends Component {
     if (window.localStorage.getItem('nudge_token')) {
       this.asyncContactsPage(() => {
         if (this.state.contacts.length) {
-          this.changePage("ContactsList");
+          this.changePage("Settings");
         } else {
           this.changePage("NewContact");
         }
@@ -60,7 +60,7 @@ class App extends Component {
       email: "",
       timeLastActivity: 0,
       contacts: [],
-      tagName: "ContactsList",
+      tagName: "Settings",
       loggedIn: false
     });
   }
@@ -165,8 +165,8 @@ class App extends Component {
       switch(this.state.tagName) {
         case "NewContact":
           return <NewContact getContacts={ this.getContacts } renderPage={ this.changePage } />;
-        case "ContactsList":
-          return <ContactsList contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } disableNotifications={ this.disableNotifications } enableNotifications={ this.enableNotifications } notificationStatus={ this.state.notificationsEnabled } lastRecordedActivity={ this.state.lastRecordedActivity } />
+        case "Settings":
+          return <Settings contacts={ this.state.contacts } deleteContact={ this.deleteContact } addContact={ this.addContact } disableNotifications={ this.disableNotifications } enableNotifications={ this.enableNotifications } notificationStatus={ this.state.notificationsEnabled } lastRecordedActivity={ this.state.lastRecordedActivity } />
         default:
           console.log("Error: invalid component tag name");
       }
