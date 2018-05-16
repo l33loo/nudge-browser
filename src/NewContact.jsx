@@ -47,7 +47,7 @@ export default class NewContact extends Component {
 
   render() {
     return (
-      <form className="registration" onSubmit={ this.onSubmit }>
+      <form>
         <h1>Add a contact</h1>
         <div className="form-section">
           <div className="form-field">
@@ -59,7 +59,7 @@ export default class NewContact extends Component {
             <input name="email" value={ this.state.email } placeholder="email@example.com" onChange={this.handleInput} /><br/>
           </div>
         </div>
-        <button type="submit" style={{cursor:'pointer'}}>Add Contact</button>
+        <button id="add-button" style={{cursor:'pointer'}} onClick={ this.onSubmit }>Add contact</button>
         <button id="cancel" style={{cursor:'pointer'}} onClick={ this.cancel }>Cancel</button>
       </form>
     );
