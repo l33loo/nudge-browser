@@ -214,7 +214,7 @@ input {
   border: none;
   padding: 0;
   float: right;
-  color: white;
+  color: tomato;
   font-size: 3vh;
   font-family: 'Yantramanav';
   margin-left: 2vw;
@@ -222,14 +222,14 @@ input {
 }
 
 form button:hover,
-.enable:hover {
+.on:hover {
   background: #2A6881;
   -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
   -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
   box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 }
 
-.disable:hover,
+.off:hover,
 #cancel:hover {
   background: #a04f40;
   -moz-box-shadow: inset 0px 2px 2px 0px #f4a54d;
@@ -237,8 +237,8 @@ form button:hover,
   box-shadow: inset 0px 2px 2px 0px #f4a54d;
 }
 
-#delete:hover {
-  background: red;
+.delete:hover {
+  color: red;
 }
 
 .Intro, form {
@@ -272,12 +272,12 @@ form button:hover,
   color: #00add9;
 }
 
-.dashbord-content {
+.settings-content {
   display: flex;
   justify-content: center;
 }
 
-.dashbord {
+.settings {
   grid-column: 4 / 10;
   grid-row: 3;
   color: white;
@@ -287,7 +287,7 @@ form button:hover,
   align-items: center;
 }
 
-.dashbord h1 {
+.settings h1 {
   text-align: center;
   font-size: 4.5vh;
   /*padding-left: 2vw;*/
@@ -295,12 +295,13 @@ form button:hover,
   font-family: 'PT Sans Narrow';
 }
 
-.dashbord h2 {
+.settings h2 {
   font-size: 3.5vh;
 }
 
 .left-panel {
   margin-right: 3vmax;
+  margin-bottom: 3vh;
 }
 
 .notifications {
