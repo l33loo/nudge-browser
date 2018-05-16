@@ -343,3 +343,23 @@ form button:hover,
 .strike {
   text-decoration: line-through;
 }
+
+.activity-indicator-red {
+  width: 2vh;
+  height: 2vh;
+  background-color: tomato;
+  border-radius: 2vh;
+  border: none;
+  margin-right: 2vh;
+  border: 0.3vh solid white;
+}
+
+.activity-indicator-blue {
+  width: 2vh;
+  height: 2vh;
+  background-color: blue;
+  border-radius: 2vh;
+  border: none;
+  margin-right: 2vh;
+  border: 0.3vh solid white;
+}
