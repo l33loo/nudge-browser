@@ -4,42 +4,32 @@ const FontAwesome = require('react-fontawesome');
 
 const Intro = (props) => {
   const responseGoogle = (response) => {
-    // if (response.type === 'success') {
-      // console.log("GOOGLE LOGIN SUCCESS");
-      // this.props.changePage('Main');
-      fetch('https://nudge-server.herokuapp.com/login', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          firstParam: response.tokenId
-        }),
-      })
-      .then((resp) => {
-        // console.log(`LOOOOCAL STORAGE: ${resp}, and STRING ${resp.toString()}`);
-        return resp.json();
-      })
-      .then((r) => {
-        console.log(`REPONSE USER ID ${r}`);
-        window.localStorage.setItem('nudge_token', r);
-        window.localStorage.setItem('nudge_name', response.getBasicProfile().getGivenName());
-        window.localStorage.setItem('nudge_email', response.getBasicProfile().getEmail());
-        props.refreshContacts();
-        props.updateState({
-          loggedIn: true,
-          // first_name: firstName,
-          // email: email
-        });
-      })
-      .catch((error) => {
-        console.log("GOOGLE ERROR!!!");
-        throw error;
+    fetch('https://nudge-server.herokuapp.com/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        firstParam: response.tokenId
+      }),
+    })
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((r) => {
+      console.log(`REPONSE USER ID ${r}`);
+      window.localStorage.setItem('nudge_token', r);
+      window.localStorage.setItem('nudge_name', response.getBasicProfile().getGivenName());
+      window.localStorage.setItem('nudge_email', response.getBasicProfile().getEmail());
+      props.refreshContacts();
+      props.updateState({
+        loggedIn: true,
       });
-    // } else {
-    //   console.log("GOOGLE ERROR!!!");
-    // }
+    })
+    .catch((error) => {
+      throw error;
+    });
   }
 
   return (

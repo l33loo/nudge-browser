@@ -6,10 +6,6 @@ import NewContact from './NewContact.jsx';
 import ContactsList from './ContactsList.jsx';
 import Footer from './Footer.jsx';
 
-// const fetch = fetch(); //gives error
-// import phone from './red-phone.jpg';
-// import logo from './logoNudge.png';
-
 class App extends Component {
   constructor() {
     super();
@@ -42,6 +38,10 @@ class App extends Component {
     this.refreshContacts = this.refreshContacts.bind(this);
   }
 
+  asyncContactsPage(cb) {
+    this.getContacts();
+  }
+
   refreshContacts() {
     if (window.localStorage.getItem('nudge_token')) {
       this.asyncContactsPage(() => {
@@ -60,7 +60,6 @@ class App extends Component {
       email: "",
       timeLastActivity: 0,
       contacts: [],
-      // notificationsEnabled: true,
       tagName: "ContactsList",
       loggedIn: false
     });
@@ -138,37 +137,24 @@ class App extends Component {
     });
   }
 
-  //merge with previous function
   changePage(tagName) {
     this.setState({ tagName: tagName });
   }
 
   verifyIfTrackActivity() {
-    //return checkLoginStatus && this.state.notificationsEnabled;
-    return true; //for development
+    return this.loggedIn && this.notificationsEnabled();
   }
 
   trackActivity() {
     this.setState({ timeLastActivity: Date.now() });
-    // console.log(this.state.timeLastActivity);
   }
 
   getTimeSinceLastActivity() {
     return Date.now() - this.state.timeLastActivity;
   }
 
-  // verifyIfPing(schedule) {
-  //   return this.state.timeLastActivity && this.getTimeSinceLastActivity() < schedule;
-  // }
-
-  pingServer() {
-    //ping server POST /users/:id/checkin with session user_id
-    // console.log("Ping server!"); // for development
-  }
-
-  handleServerPings() { // Date.now(), Date.now() + 2hrs
+  handleServerPings() { // Date.now(), Date.now() + 30 min
     if (Date.now() - this.state.timeLastActivity < 5000) { // 86400000 -- 24-hr schedule
-      // console.log("Ping server!"); //this.pingServer();
     }
   }
 
@@ -187,13 +173,8 @@ class App extends Component {
     }
   }
 
-  asyncContactsPage(cb) {
-    this.getContacts();
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.loggedIn !== nextState || this.state.contacts !== nextState || this.state.tagName !== nextState || this.state.notificationsEnabled !== nextState;
-    // return this.state.timeLastActivity === nextState;
   }
 
   componentDidMount() {
@@ -202,7 +183,7 @@ class App extends Component {
 
     setInterval(() => {
       if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
-        // console.log("Ping server!"); //this.pingServer();
+        console.log("Contact server!");
         fetch(`https://nudge-server.herokuapp.com/ping/${window.localStorage.getItem('nudge_token')}`)
         .then((response) => {
           this.setState({ lastRecordedActivity: Date.now() });
@@ -210,13 +191,6 @@ class App extends Component {
         .catch(error => console.error('Error:', error));
       }
     }, 30000);
-    // fetch(`/users/${user_id}.json`, credentials: 'same-origin')
-    // .then(function(response) {
-    //   return response.json();
-    // })
-    // .then(function(userJson) {
-    //   this.setState({ userJson });
-    // });
   }
 
   render() {

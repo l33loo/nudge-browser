@@ -1,8 +1,6 @@
 // Keep file for future use in case needed.
 
 import React, { Component } from 'react';
-// const fetch = fetch(); //gives error
-// import NavBar from './NavBar.jsx';
 
 export default class Login extends Component {
   constructor(props) {
@@ -43,15 +41,10 @@ export default class Login extends Component {
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
-      // credentials: 'same-origin'
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => this.props.updateState({ tagName: "Setting" })); // this.props.changePage('Main');
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
