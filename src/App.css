@@ -178,7 +178,7 @@ input {
   background: none;
   font-size: 2vh;
   text-align: center;
-  width: 12vmax;
+  width: 20vmax;
   font-weight: bold;
   border: 5px solid tomato;
   border-radius: 10px;
@@ -193,7 +193,7 @@ input {
   background: none;
   font-size: 2vh;
   text-align: center;
-  width: 12vmax;
+  width: 20vmax;
   font-weight: bold;
   border: 5px solid #00add9;
   border-radius: 10px;
