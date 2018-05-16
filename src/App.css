@@ -159,44 +159,66 @@ input {
 
 }
 
-.enable {
+.off {
   position: relative;
   display: block;
-  padding: 12px 39px 12px 39px;
   color: white;
   /*margin: 0 auto;*/
   background: none;
   font-size: 2vh;
   /*text-align: center;*/
   font-weight: bold;
-  width: auto;
-  border: 5px solid #00add9;
-  border-radius: 10px;
-  /*border-width: 1px 1px 3px;*/
-  /*margin-bottom: 10px;*/
-}
-
-.disable {
-  position: relative;
-  display: block;
-  padding: 12px 39px 12px 39px;
-  color: white;
-  /*margin: 0 auto;*/
-  background: none;
-  font-size: 2vh;
-  /*text-align: center;*/
-  font-weight: bold;
-  width: auto;
+  width: 8vh;
   border: 5px solid tomato;
   border-radius: 10px;
+  float: right;
+  /*border-width: 1px 1px 3px;*/
+  /*margin-bottom: 10px;*/
+}
+
+.on {
+  position: relative;
+  display: block;
+  padding: 12px, 24px, 12px, 24px;
+  color: white;
+  /*margin: 0 auto;*/
+  background: none;
+  font-size: 2vh;
+  /*text-align: center;*/
+  font-weight: bold;
+  width: 8vh;
+  border: 5px solid #00add9;
+  border-radius: 10px;
+  float: right;
 
   /*border-width: 1px 1px 3px;*/
   /*margin-bottom: 10px;*/
 }
 
-#cancel, #delete {
-  background: tomato;
-  border: 1px solid #f4a54d;
+#cancel {
+  position: relative;
+  display: block;
+  padding: 12px 39px 12px 39px;
+  color: white;
+  margin: 0 auto;
+  background: none;
+  font-size: 2.5vmax;
+  text-align: center;
+  font-weight: bold;
+  width: auto;
+  border-radius: 10px
+}
+
+.delete {
+  background: none;
+  border: none;
+  padding: 0;
+  float: right;
+  color: white;
+  font-size: 3vh;
+  font-family: 'Yantramanav';
+  margin-left: 2vw;
+  font-weight: bold;
 }
 
 form button:hover,
@@ -267,18 +289,26 @@ form button:hover,
 
 .dashbord h1 {
   text-align: center;
-  font-size: 3.5vh;
-  padding-left: 2vw;
+  font-size: 4.5vh;
+  /*padding-left: 2vw;*/
   padding-bottom: 3vmax;
   font-family: 'PT Sans Narrow';
 }
 
-.dashbord li {
-  font-size: 2.5vh;
+.dashbord h2 {
+  font-size: 3.5vh;
+}
+
+.left-panel {
+  margin-right: 3vmax;
 }
 
 .notifications {
-  padding-right: 3vmax;
+  margin-bottom: 7vh;
+}
+
+.notifications button {
+  margin-left: 2vh;
 }
 
 .contacts {
@@ -286,8 +316,17 @@ form button:hover,
   border-left: solid 1px white;
 }
 
+.no-contacts {
+  text-align: center;
+}
+
 .contact {
-  padding-bottom: 2vh;
+  display: flex;
+  margin-bottom: 2vh;
+}
+
+.contact button {
+  float: right;
 }
 
 .Footer {
@@ -332,8 +371,7 @@ form button:hover,
 }
 
 .add-contact {
-  padding-left: 3vw;
-  padding-right: 2vw;
+  padding-left: 2vw;
 }
 
 .add-contact:hover {
@@ -348,8 +386,9 @@ form button:hover,
   width: 2vh;
   height: 2vh;
   background-color: tomato;
-  border-radius: 2vh;
+  border-radius: 50%;
   border: none;
+  margin-left: 2vh;
   margin-right: 2vh;
   border: 0.3vh solid white;
 }
@@ -357,9 +396,15 @@ form button:hover,
 .activity-indicator-blue {
   width: 2vh;
   height: 2vh;
-  background-color: blue;
-  border-radius: 2vh;
+  background-color: #00add9;
+  border-radius: 50%;
   border: none;
+  margin-left: 2vh;
   margin-right: 2vh;
   border: 0.3vh solid white;
 }
+
+.inactivity {
+  padding-left: 2vh;
+}
+
