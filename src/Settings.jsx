@@ -55,10 +55,14 @@ const Settings = (props) => {
 
   const lastActivity = () => {
     const time = getTimeLastActivity();
-    return timeLastActivity >= 86400000 ?
-      <div><h2>Last recorded activity</h2><button className="activity-indicator-red"></button>{ time }</div>
-    :
-      <div><h2>Last recorded activity</h2><button className="activity-indicator-blue"></button>{ time }</div>;
+    if (props.notificationStatus) {
+      return timeLastActivity >= 86400000 ?
+        <div><h2>Last recorded activity</h2><button className="activity-indicator red"></button>{ time }</div>
+      :
+        <div><h2>Last recorded activity</h2><button className="activity-indicator blue"></button>{ time }</div>;
+    } else {
+      return <div><h2>Last recorded activity</h2><button className="activity-indicator grey"></button>{ time }</div>;
+    }
   }
 
     const handleNotifications = () => {
