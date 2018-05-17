@@ -100,7 +100,6 @@ class App extends Component {
 
   loggedIn(bool) {
     this.setState({ loggedIn: [bool] });
-    console.log(`CHANGED this.state.loggedIn to ${bool} CHECK: ${this.state.loggedIn}`);
   }
 
   updateState(data) {
@@ -108,7 +107,6 @@ class App extends Component {
   }
 
   disableNotifications() {
-    console.log(`NOTIFICATIONS ENABLED false, CHECK ${this.state.notificationsEnabled}`);
     const userId = window.localStorage.getItem('nudge_token');
     fetch(`https://nudge-server.herokuapp.com/deactivate/${userId}`)
     .then((response) => {
@@ -181,7 +179,7 @@ class App extends Component {
     this.refreshContacts();
 
     setInterval(() => {
-      if (this.state.notificationsEnabled && window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+      if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
         console.log("Contact server!");
         fetch(`https://nudge-server.herokuapp.com/ping/${window.localStorage.getItem('nudge_token')}`)
         .then((response) => {
@@ -189,7 +187,7 @@ class App extends Component {
         })
         .catch(error => console.error('Error:', error));
       }
-    }, 30000);
+    }, 10000);
   }
 
   render() {
