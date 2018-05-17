@@ -298,7 +298,7 @@ input {
 }
 
 .notifications button {
-  margin-left: 2vh;
+  margin-left: 5vh;
 }
 
 .contacts {
@@ -372,10 +372,9 @@ input {
   text-decoration: line-through;
 }
 
-.activity-indicator-red {
+.activity-indicator {
   width: 2vh;
   height: 2vh;
-  background-color: tomato;
   border-radius: 50%;
   border: none;
   margin-left: 2vh;
@@ -383,15 +382,16 @@ input {
   border: 0.3vh solid white;
 }
 
-.activity-indicator-blue {
-  width: 2vh;
-  height: 2vh;
+.activity-indicator.red {
+  background-color: tomato;
+}
+
+.activity-indicator.blue {
   background-color: #00add9;
-  border-radius: 50%;
-  border: none;
-  margin-left: 2vh;
-  margin-right: 2vh;
-  border: 0.3vh solid white;
+}
+
+.activity-indicator.grey {
+  background-color: #647c83;
 }
 
 .inactivity {
