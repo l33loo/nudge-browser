@@ -181,7 +181,7 @@ class App extends Component {
     this.refreshContacts();
 
     setInterval(() => {
-      if (window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
+      if (this.state.notificationsEnabled && window.localStorage.getItem('nudge_token') && Date.now() - this.state.timeLastActivity < 10000) { // 86400000 -- 24-hr schedule
         console.log("Contact server!");
         fetch(`https://nudge-server.herokuapp.com/ping/${window.localStorage.getItem('nudge_token')}`)
         .then((response) => {
