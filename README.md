@@ -33,7 +33,7 @@ Images to come.
 3. Initiate git via the `git init` command
 4. Deploy to [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
 
-You can also check out the [currently-deployed version]([here](https://nudge-client-app.herokuapp.com) of the browser app!
+You can also check out the [currently-deployed version](https://nudge-client-app.herokuapp.com) of the browser app!
 
 ## Dependencies
 
